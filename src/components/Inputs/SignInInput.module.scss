@@ -1,0 +1,13 @@
+.inputs {
+    text-align: center;
+    border: 3px solid rgba(140, 145, 135, 0.982);
+    border-radius: 12px;
+    transition: 0.3s;
+    background-color: black;
+    margin: 4px 0;
+    color:azure;
+}
+
+.inputs:hover {
+    transform: scale(1.03);
+}

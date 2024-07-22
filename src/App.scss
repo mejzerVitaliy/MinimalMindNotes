@@ -1,0 +1,25 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(91, 201, 177);
+    border: 2px solid black;
+
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.errors {
+    border: 2px solid red;
+    color: red;
+    border-radius: 12px;
+    max-width: 200px;
+}
