@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SignInInput from "../../UI/Inputs/SignInInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import FormButton from "../../Button/FormButton";
+import FormButton from "../../UI/Button/FormButton";
 
 interface FormInputs {
   login: string;
