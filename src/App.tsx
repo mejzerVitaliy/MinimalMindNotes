@@ -1,11 +1,18 @@
 import React from "react";
 import "./App.scss";
-import SignInForm from "./components/SignInForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Account from "./components/Pages/Account/Account";
+import SignInForm from "./components/Pages/Registration/SignInForm";
 
 const App: React.FC = () => {
-    return (
-        <SignInForm/>
-    )
-}
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SignInForm />} />
+        <Route path="/account" element={<Account />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;

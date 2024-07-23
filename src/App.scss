@@ -10,8 +10,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(91, 201, 177);
-    border: 2px solid black;
+    background-color: #F0F0F0;
+    border: 2px solid #CCCCCC;
+    box-shadow: 0px 2px 8px 2px rgb(0, 0, 0);
 
     padding: 20px;
     border-radius: 16px;
@@ -19,7 +20,61 @@
 
 .errors {
     border: 2px solid red;
-    color: red;
+    color: rgb(195, 0, 0);
     border-radius: 12px;
-    max-width: 200px;
+    width: 300px;
+}
+
+.visibility {
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+}
+
+.visibility:focus,
+.visibility:active {
+    outline: none;
+    border: none;
+}
+
+.visibility:hover {
+    transform: scale(1.07);
+}
+
+.password {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 245px;
+}
+
+.button {
+    padding: 4px;
+    margin: 16px 0;
+    width: 300px;
+    border: 2px solid #CCCCCC;
+    border-radius: 20px;
+    transition: 0.2s;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.button:hover{
+    transform: scale(1.05);
+    background-color: #b71515;
+    border-color: #000000;
+}
+
+.disabledBtn {
+    padding: 4px;
+    margin: 16px 0;
+    width: 300px;
+    border-radius: 20px;
+    background-color: #6a6a6a;
+    color: #FFFFFF;
 }

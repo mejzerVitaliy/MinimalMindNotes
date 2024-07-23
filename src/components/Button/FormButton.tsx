@@ -1,9 +1,13 @@
 import React from 'react'
-import cl from "./FormButton.module.scss";
 
-const FormButton: React.FC = () => {
+interface MyButton {
+    disabled: boolean,
+    className?: string
+}
+
+const FormButton: React.FC<MyButton> = ({disabled, className}) => {
     return (
-        <button className={cl.button}>Sign In</button>
+        <button className={className} disabled={disabled}>Sign In</button>
     )
 }
 

@@ -1,0 +1,16 @@
+.inputs {
+    text-align: center;
+    border: 3px solid #CCCCCC;
+    border-radius: 12px;
+    transition: 0.3s;
+    background-color: #FFFFFF;
+    margin: 4px 0;
+    color: #333333;;
+    height: 30px;
+}
+
+.inputs::placeholder{
+    color: #3333335d;
+}
+
+
