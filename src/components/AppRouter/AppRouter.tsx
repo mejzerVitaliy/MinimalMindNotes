@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
 import { privateRoutes, publicRoutes } from './router';
-import { authContext } from '../context/authContext';
+// import { authContext } from '../context/authContext';
 
 
 const AppRouter: React.FC = () => {
     
-    const { isAuth, setIsAuth } = useContext(authContext)
+    // const { isAuth, setIsAuth } = useContext(authContext)
     
 
     
-    return isAuth? (
+    return ''? (
         
         <Routes>
             {publicRoutes.map(route => (

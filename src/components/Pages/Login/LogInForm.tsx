@@ -3,7 +3,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import SignInInput from "../../UI/Inputs/SignInInput";
 import { useNavigate } from "react-router-dom";
 import FormButton from "../../UI/Button/FormButton";
-import { authContext } from "../../context/authContext";
+import cl from './LoginForm.module.scss'
+// import { authContext } from "../../context/authContext";
 
 interface FormInputs {
     login: string;
@@ -11,6 +12,10 @@ interface FormInputs {
 }
 
 const LoginForm: React.FC = () => {
+    
+    // const { isAuth, setIsAuth } = useContext(authContext)
+
+
     const {
         register,
         handleSubmit,
@@ -18,12 +23,11 @@ const LoginForm: React.FC = () => {
     } = useForm<FormInputs>({
         mode: "all",
     });
+    
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
-
-    const {isAuth, setIsAuth} = useContext(authContext)
-
+  
     const passwordVisibility = () => {
         setShowPassword((visibility) => !visibility);
     };
@@ -34,8 +38,10 @@ const LoginForm: React.FC = () => {
         setIsAuth(true)
     };
 
+    
+
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="signInForm">
+        <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
         <h1>Login</h1>
 
         <SignInInput
@@ -46,7 +52,7 @@ const LoginForm: React.FC = () => {
             })}
         />
 
-        <div className="password">
+        <div className={cl.password}>
             <SignInInput
             type={showPassword ? "text" : "password"}
             placeholder="enter password"
@@ -62,13 +68,13 @@ const LoginForm: React.FC = () => {
             <button
             type="button"
             onClick={passwordVisibility}
-            className="visibility"
+            className={cl.visibility}
             >
             {showPassword ? "🙈" : "🙉"}
             </button>
         </div>
 
-        <div className="errors">
+        <div className={cl.errors}>
             {errors.login && <p>{errors.login.message}</p>}
             {errors.password && <p>{errors.password.message}</p>}
         </div>
@@ -77,7 +83,7 @@ const LoginForm: React.FC = () => {
 
         <FormButton
             disabled={!isValid || isSubmitting}
-            className={!isValid || isSubmitting ? "disabledBtn" : "button"}
+            className={!isValid || isSubmitting ? cl.disabledBtn : cl.button}
         />
         </form>
     );

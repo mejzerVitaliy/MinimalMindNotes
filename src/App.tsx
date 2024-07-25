@@ -7,15 +7,15 @@ import { authContext } from "./components/context/authContext";
 
 const App: React.FC = () => {
     
-    const {isAuth, setIsAuth} = useState(false)
+    // const {isAuth, setIsAuth} = useState(false)
     
     return (
 
-        <authContext.Provider value={{isAuth, setIsAuth}}>
+        // <authContext.Provider value={{isAuth, setIsAuth}}>
             <BrowserRouter>
                 <AppRouter />
             </BrowserRouter>
-        </authContext.Provider>
+        // </authContext.Provider>
 
         
     );

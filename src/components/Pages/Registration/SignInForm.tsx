@@ -3,7 +3,8 @@ import SignInInput from "../../UI/Inputs/SignInInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import FormButton from "../../UI/Button/FormButton";
-import { authContext } from "../../context/authContext";
+import cl from './SigninForm.module.scss'
+// import { authContext } from "../../context/authContext";
 
 interface FormInputs {
     login: string;
@@ -20,7 +21,7 @@ const SignInForm: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
 
-    const {isAuth, setIsAuth} = useContext(authContext)
+    // const {isAuth, setIsAuth} = useContext(authContext)
 
     const navigate = useNavigate();
 
@@ -39,11 +40,11 @@ const SignInForm: React.FC = () => {
     const onSubmit: SubmitHandler<FormInputs> = data => {
         console.log(data.login, data.password);
         navigate("/logIn");
-        setIsAuth(true)
+        // setIsAuth(true)
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="signInForm">
+        <form onSubmit={handleSubmit(onSubmit)} className={cl.signInForm}>
             <h1>Registration</h1>
 
             <SignInInput
@@ -54,7 +55,7 @@ const SignInForm: React.FC = () => {
                 })}
             />
 
-            <div className="password">
+            <div className={cl.password}>
                 <SignInInput
                     type={showPassword ? "text" : "password"}
                     placeholder="enter password"
@@ -70,13 +71,13 @@ const SignInForm: React.FC = () => {
                 <button
                     type="button"
                     onClick={passwordVisibility}
-                    className="visibility"
+                    className={cl.visibility}
                 >
                     {showPassword ? "🙈" : "🙉"}
                 </button>
             </div>
 
-            <div className="password">
+            <div className={cl.password}>
                 <SignInInput
                     type={showPassword2 ? "text" : "password"}
                     placeholder="repeat password"
@@ -89,7 +90,7 @@ const SignInForm: React.FC = () => {
                 <button
                     type="button"
                     onClick={passwordVisibility2}
-                    className="visibility"
+                    className={cl.visibility}
                 >
                     {showPassword2 ? "🙈" : "🙉"}
                 </button>
@@ -112,7 +113,7 @@ const SignInForm: React.FC = () => {
                 </p>
             </div>
 
-            <div className="errors">
+            <div className={cl.errors}>
                 {errors.login && <p>{errors.login.message}</p>}
                 {errors.password && <p>{errors.password.message}</p>}
                 {errors.password2 && <p>{errors.password2.message}</p>}
@@ -123,7 +124,7 @@ const SignInForm: React.FC = () => {
 
             <FormButton
                 disabled={!isValid || isSubmitting}
-                className={!isValid || isSubmitting ? "disabledBtn" : "button"}
+                className={!isValid || isSubmitting ? cl.disabledBtn : cl.button}
             />
         </form>
     );
