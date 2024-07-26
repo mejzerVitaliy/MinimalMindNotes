@@ -1,19 +1,26 @@
 import React, { useContext } from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
 import { privateRoutes, publicRoutes } from './router';
-// import { authContext } from '../context/authContext';
+import { authContext } from '../context/authContext';
+
 
 
 const AppRouter: React.FC = () => {
-    
-    // const { isAuth, setIsAuth } = useContext(authContext)
-    
 
+    const AuthCtx = useContext(authContext)
+
+    if (!AuthCtx) {
+        throw new Error('authContext must be used within an AuthProvider')
+    }
+
+    const { isAuth } = AuthCtx
+    console.log(isAuth);
     
-    return ''? (
+    
+    return isAuth? (
         
         <Routes>
-            {publicRoutes.map(route => (
+            {privateRoutes.map(route => (
                 <Route
                     key={route.path}
                     path={route.path}
@@ -26,7 +33,7 @@ const AppRouter: React.FC = () => {
     ) : (
         
         <Routes>
-            {privateRoutes.map(route => (
+            {publicRoutes.map(route => (
                 <Route
                     key={route.path}
                     path={route.path}

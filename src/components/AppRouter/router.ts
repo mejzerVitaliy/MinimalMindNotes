@@ -7,11 +7,11 @@ interface Routes {
     element: React.FC
 }
 
-export const privateRoutes: Routes[] = [
+export const publicRoutes: Routes[] = [
     { path: '/signIn', element: SignInForm  },
     { path: '/logIn', element: LogInForm }
 ]
 
-export const publicRoutes: Routes[] = [
+export const privateRoutes: Routes[] = [
     {path: '/account', element: Account}
 ]

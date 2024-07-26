@@ -1,3 +1,12 @@
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
 .form {
     display: flex;
     flex-direction: column;
@@ -15,9 +24,11 @@
     border: 2px solid red;
     color: rgb(195, 0, 0);
     border-radius: 12px;
-    width: 300px;
+    width: 280px;
     margin: 8px 0;
+    text-align: center;
 }
+
 
 .visibility {
     padding: 0;
@@ -46,6 +57,12 @@
     align-items: center;
     width: 245px;
 }
+
+.linkTo {
+    color: blue;
+    font-size: 18px;
+}
+
 
 .button {
     padding: 4px;
