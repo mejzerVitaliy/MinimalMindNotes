@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
     };
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        localStorage.setItem('isAuth', JSON.stringify(isAuth) )
+        localStorage.setItem('isAuth', `${isAuth}`)
         console.log(data);
         setIsAuth(true)
     };

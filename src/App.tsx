@@ -17,7 +17,7 @@ const App: React.FC = () => {
     console.log(AuthCtx);
 
     useEffect(() => {
-        if (localStorage.getItem(JSON.stringify(isAuth))){
+        if (localStorage.getItem(`${isAuth}`)){
             setIsAuth(true)
         } 
     }, [])
