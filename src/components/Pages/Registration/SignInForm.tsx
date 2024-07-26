@@ -118,6 +118,7 @@ const SignInForm: React.FC = () => {
                         register={register("checkbox", {
                             required: "checkbox is required",
                         })}
+                        className="checkbox"
                     />
                     <p className={cl.par}>
                         I'm agree to work with my personal data
