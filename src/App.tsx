@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter/AppRouter";
-import AuthProvider from "./components/AuthProvider";
+import { authContext } from "./components/context/authContext";
 
 
 
 
 const App: React.FC = () => {
     
+    const AuthCtx = useContext(authContext) 
+    if (!AuthCtx) {
+        throw new Error('authContext must be used within an AuthProvider')
+    }
+    const { isAuth, setIsAuth } = AuthCtx
+    console.log(AuthCtx);
 
-    
+    useEffect(() => {
+        if (localStorage.getItem(JSON.stringify(isAuth))){
+            setIsAuth(true)
+        } 
+    }, [])
+
     return (
 
-        <AuthProvider>
-            <BrowserRouter>
-                <AppRouter />
-            </BrowserRouter>
-        </AuthProvider>
+        
+        <BrowserRouter>
+            <AppRouter />
+        </BrowserRouter>
+        
     );
 };
 

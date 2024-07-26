@@ -20,7 +20,7 @@ const LoginForm: React.FC = () => {
         throw new Error('authContext must be used within an AuthProvider')
     }
 
-    const {setIsAuth} = AuthCtx    
+    const {isAuth, setIsAuth} = AuthCtx    
 
 
     const {
@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
     };
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        // navigate("/account");
+        localStorage.setItem('isAuth', JSON.stringify(isAuth) )
         console.log(data);
         setIsAuth(true)
     };

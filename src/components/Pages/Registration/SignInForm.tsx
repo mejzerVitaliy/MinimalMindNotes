@@ -22,7 +22,7 @@ const SignInForm: React.FC = () => {
         throw new Error('authContext must be used within an AuthProvider')
     }
 
-    const {setIsAuth} = AuthCtx
+    const {isAuth, setIsAuth} = AuthCtx
     
     
     const { register, handleSubmit, formState: { errors, isValid, isSubmitting }, getValues } = useForm<FormInputs>({
@@ -48,8 +48,8 @@ const SignInForm: React.FC = () => {
     };
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        console.log(data.login, data.password);
-        // navigate("/account");
+        localStorage.setItem('isAuth', JSON.stringify(isAuth) )
+        console.log(data.login, data.password);        
         setIsAuth(true)
     };
 
