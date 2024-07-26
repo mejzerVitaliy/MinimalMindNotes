@@ -48,9 +48,10 @@ const SignInForm: React.FC = () => {
     };
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        localStorage.setItem('isAuth', `${isAuth}` )
-        console.log(data.login, data.password);        
+        console.log(data);        
         setIsAuth(true)
+
+        localStorage.setItem('isAuth', `${isAuth}`)
     };
 
     return (
@@ -135,7 +136,9 @@ const SignInForm: React.FC = () => {
                 <FormButton
                     disabled={!isValid || isSubmitting}
                     className={!isValid || isSubmitting ? cl.disabledBtn : cl.button}
-                />
+                >
+                    Sign In
+                </FormButton>
             </form>
         </div>
         

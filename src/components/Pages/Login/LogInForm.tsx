@@ -40,9 +40,10 @@ const LoginForm: React.FC = () => {
     };
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        localStorage.setItem('isAuth', `${isAuth}`)
         console.log(data);
         setIsAuth(true)
+
+        localStorage.setItem('isAuth', `${isAuth}`)
     };
 
     
@@ -93,7 +94,9 @@ const LoginForm: React.FC = () => {
                 <FormButton
                     disabled={!isValid || isSubmitting}
                     className={!isValid || isSubmitting ? cl.disabledBtn : cl.button}
-                />
+                >
+                    Log In
+                </FormButton>
             </form>
         </div>
         

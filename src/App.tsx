@@ -13,13 +13,13 @@ const App: React.FC = () => {
     if (!AuthCtx) {
         throw new Error('authContext must be used within an AuthProvider')
     }
-    const { isAuth, setIsAuth } = AuthCtx
-    console.log(AuthCtx);
+    const { setIsAuth } = AuthCtx
 
     useEffect(() => {
-        if (localStorage.getItem(`${isAuth}`)){
+        if (localStorage.getItem(`isAuth`)){
             setIsAuth(true)
-        } 
+        } else setIsAuth(false)
+        
     }, [])
 
     return (

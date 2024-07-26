@@ -1,13 +1,15 @@
 import React from 'react'
 
 interface MyButton {
-    disabled: boolean,
-    className?: string
+    disabled?: boolean,
+    className?: string,
+    onClick?: () => void,
+    children?: string
 }
 
-const FormButton: React.FC<MyButton> = ({disabled, className}) => {
+const FormButton: React.FC<MyButton> = ({disabled, className, onClick, children}) => {
     return (
-        <button className={className} disabled={disabled}>Sign In</button>
+        <button className={className} disabled={disabled} onClick={onClick}>{children}</button>
     )
 }
 
