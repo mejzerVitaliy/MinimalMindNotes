@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import cl from './Account.module.scss'
 import FormButton from '../../UI/Button/FormButton'
 import { authContext } from '../../context/authContext'
+import Navbar from '../../UI/Navbar/Navbar'
+import { useNavigate } from 'react-router-dom'
 
 const Account: React.FC = () => {
-    
+    const navigate = useNavigate()
     const AuthCtx = useContext(authContext)
     
     if (!AuthCtx) {
@@ -16,19 +18,19 @@ const Account: React.FC = () => {
 
     const logOut = () => {
         setIsAuth(false)
-
         localStorage.removeItem('isAuth')
-        
+    }
+
+    const back = () => {
+        navigate('/myNotes')
     }
     
     return (
-        <div>
-            <nav className={cl.navigate}>
-                <h1>Account</h1>
-                <FormButton onClick={logOut}>log out</FormButton>
-                
-            </nav>
-        </div>
+        <>
+            <Navbar title='MyAccount'/>
+            <FormButton className={cl.button} onClick={logOut}>log out</FormButton>
+            <FormButton className={cl.button} onClick={back}>Back to MyNotes</FormButton>
+        </>
     )
 }
 

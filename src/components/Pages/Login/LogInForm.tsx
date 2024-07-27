@@ -52,7 +52,7 @@ const LoginForm: React.FC = () => {
         
         <div className={cl.center}>
             <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
-                <h1 style={{marginBottom: '40px'}}>Login</h1>
+                <h1 className={cl.title}>Login</h1>
 
                 <SignInInput
                     type="text"

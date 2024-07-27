@@ -4,7 +4,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  background-color: #480000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,12 +21,7 @@ html, body, #root {
 
 
 
-h1 {
-  font-size: 52px;
-  line-height: 1.1;
-  margin: 8px 0 16px;
-  color: #333333;
-}
+
 
 
 

@@ -27,7 +27,7 @@ const AppRouter: React.FC = () => {
                     element={<route.element />}
                 />
             ))}
-            <Route path='/*' element= {<Navigate to='/account' />} />
+            <Route path='/*' element= {<Navigate to='/myNotes' />} />
         </Routes>
         
     ) : (

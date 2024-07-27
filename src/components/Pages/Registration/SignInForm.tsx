@@ -57,7 +57,7 @@ const SignInForm: React.FC = () => {
     return (
         <div className={cl.center}>
             <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
-                <h1>Registration</h1>
+                <h1 className={cl.title}>Registration</h1>
 
                 <SignInInput
                     type="text"

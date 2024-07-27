@@ -22,9 +22,16 @@
     border-radius: 16px;
 }
 
+.title {
+    font-size: 52px;
+    line-height: 1.1;
+    margin: 8px 0 40px;
+    color: #333333;
+}
+
 .errors {
-    border: 2px solid red;
-    color: rgb(195, 0, 0);
+    border: 2px solid rgb(37, 37, 37);
+    color: rgb(143, 1, 1);
     border-radius: 12px;
     width: 280px;
     margin: 8px 0;

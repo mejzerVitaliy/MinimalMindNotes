@@ -1,6 +1,8 @@
 import SignInForm from "../Pages/Registration/SignInForm"
 import LogInForm from "../Pages/Login/LogInForm"
 import Account from "../Pages/Account/Account"
+import Notes from "../Pages/GeneralPage/Notes"
+import CreateNote from "../Pages/CreateNewNote/CreateNote"
 
 interface Routes {
     path: string,
@@ -13,5 +15,7 @@ export const publicRoutes: Routes[] = [
 ]
 
 export const privateRoutes: Routes[] = [
-    {path: '/account', element: Account}
+    { path: '/account', element: Account },
+    { path: '/myNotes', element: Notes },
+    { path: '/createNote', element: CreateNote }
 ]
