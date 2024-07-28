@@ -5,6 +5,7 @@ import SignInInput from "../../UI/Inputs/SignInInput";
 import FormButton from "../../UI/Button/FormButton";
 import cl from './LoginForm.module.scss'
 import { authContext } from "../../context/authContext";
+import { chekAuth } from "../../../API/Api";
 
 
 interface FormInputs {
@@ -39,11 +40,22 @@ const LoginForm: React.FC = () => {
         setShowPassword((visibility) => !visibility);
     };
 
-    const onSubmit: SubmitHandler<FormInputs> = data => {
-        console.log(data);
-        setIsAuth(true)
+    const onSubmit: SubmitHandler<FormInputs> = async(data) => {
+        try {
+            
+            const users = await chekAuth(data.login, data.password)
 
-        localStorage.setItem('isAuth', `${isAuth}`)
+            if (users.length > 0) {
+                console.log('User logged in:', users[0]);
+                
+                setIsAuth(true)
+                localStorage.setItem('isAuth', `${isAuth}`)
+            } else console.error('Invalid login or password');
+            
+            console.log(data);
+        } catch (error) {
+            console.error('Error logging in:', error);
+        }
     };
 
     

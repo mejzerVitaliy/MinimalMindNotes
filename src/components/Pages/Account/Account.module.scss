@@ -8,6 +8,16 @@ h1{
     margin: 0;
 }
 
-.button {
+.back {
     margin: 20px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+}
+
+.logout {
+    margin: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
 }

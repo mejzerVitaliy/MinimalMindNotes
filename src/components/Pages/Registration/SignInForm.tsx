@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import FormButton from "../../UI/Button/FormButton";
 import cl from './SigninForm.module.scss'
 import { authContext } from "../../context/authContext";
+import { createUser } from "../../../API/Api";
 
 
 interface FormInputs {
@@ -47,11 +48,16 @@ const SignInForm: React.FC = () => {
         return value === password1 || "passwords don't match";
     };
 
-    const onSubmit: SubmitHandler<FormInputs> = data => {
-        console.log(data);        
-        setIsAuth(true)
-
-        localStorage.setItem('isAuth', `${isAuth}`)
+    const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+        try {
+            await createUser(data)
+            
+            console.log(data);
+            setIsAuth(true)
+            localStorage.setItem('isAuth', `${isAuth}`)
+        } catch (error) {
+            console.error('Error creating user:', error);
+        }
     };
 
     return (

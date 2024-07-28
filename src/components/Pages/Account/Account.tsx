@@ -13,7 +13,10 @@ const Account: React.FC = () => {
         throw new Error('authContext must be used within an AuthProvider')
     }
 
-    const { setIsAuth} = AuthCtx
+    const { setIsAuth } = AuthCtx
+    
+
+    
 
 
     const logOut = () => {
@@ -28,8 +31,9 @@ const Account: React.FC = () => {
     return (
         <>
             <Navbar title='MyAccount'/>
-            <FormButton className={cl.button} onClick={logOut}>log out</FormButton>
-            <FormButton className={cl.button} onClick={back}>Back to MyNotes</FormButton>
+            
+            <FormButton className={cl.logout} onClick={logOut}>log out</FormButton>
+            <FormButton className={cl.back} onClick={back}>Back to MyNotes</FormButton>
         </>
     )
 }

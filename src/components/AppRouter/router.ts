@@ -1,7 +1,7 @@
 import SignInForm from "../Pages/Registration/SignInForm"
 import LogInForm from "../Pages/Login/LogInForm"
 import Account from "../Pages/Account/Account"
-import Notes from "../Pages/GeneralPage/Notes"
+import Notes from "../Pages/GeneralPage/GeneralPage"
 import CreateNote from "../Pages/CreateNewNote/CreateNote"
 
 interface Routes {
