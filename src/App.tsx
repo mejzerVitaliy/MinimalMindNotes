@@ -1,35 +1,23 @@
-import React, { useContext, useEffect } from "react";
-import "./App.scss";
+import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
+import "./App.scss";
 import AppRouter from "./components/AppRouter/AppRouter";
-import { authContext } from "./components/context/authContext";
-
-
-
+import { useAuthCtx } from "./hooks/useContext";
 
 const App: React.FC = () => {
-    
-    const AuthCtx = useContext(authContext) 
-    if (!AuthCtx) {
-        throw new Error('authContext must be used within an AuthProvider')
-    }
-    const { setIsAuth } = AuthCtx
+  const { setIsAuth } = useAuthCtx();
 
-    useEffect(() => {
-        if (localStorage.getItem(`isAuth`)){
-            setIsAuth(true)
-        } else setIsAuth(false)
-        
-    }, [])
+  useEffect(() => {
+    if (localStorage.getItem(`isAuth`)) {
+      setIsAuth(true);
+    } else setIsAuth(false);
+  }, []);
 
-    return (
-
-        
-        <BrowserRouter>
-            <AppRouter />
-        </BrowserRouter>
-        
-    );
+  return (
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+  );
 };
 
 export default App;

@@ -7,9 +7,9 @@ interface MyButton {
     children?: string | ReactNode
 }
 
-const FormButton: React.FC<MyButton> = ({disabled, className, onClick, children}) => {
+const FormButton: React.FC<MyButton> = ({disabled, className, onClick, children, }) => {
     return (
-        <button className={className} disabled={disabled} onClick={onClick}>{children}</button>
+        <button className={className} disabled={disabled} onClick={onClick} >{children}</button>
     )
 }
 

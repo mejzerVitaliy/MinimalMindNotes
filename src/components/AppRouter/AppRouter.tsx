@@ -1,49 +1,27 @@
-import React, { useContext } from 'react'
-import { Routes, Route, Navigate } from "react-router-dom";
-import { privateRoutes, publicRoutes } from './router';
-import { authContext } from '../context/authContext';
-
-
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuthCtx } from "../../hooks/useContext";
+import { privateRoutes, publicRoutes } from "./router";
 
 const AppRouter: React.FC = () => {
+  const { isAuth } = useAuthCtx();
+  console.log(isAuth);
 
-    const AuthCtx = useContext(authContext)
+  return isAuth ? (
+    <Routes>
+      {privateRoutes.map((route) => (
+        <Route key={route.path} path={route.path} element={<route.element />} />
+      ))}
+      <Route path="/*" element={<Navigate to="/myNotes" />} />
+    </Routes>
+  ) : (
+    <Routes>
+      {publicRoutes.map((route) => (
+        <Route key={route.path} path={route.path} element={<route.element />} />
+      ))}
+      <Route path="/*" element={<Navigate to="/signIn" />} />
+    </Routes>
+  );
+};
 
-    if (!AuthCtx) {
-        throw new Error('authContext must be used within an AuthProvider')
-    }
-
-    const { isAuth } = AuthCtx
-    console.log(isAuth);
-    
-    
-    return isAuth? (
-        
-        <Routes>
-            {privateRoutes.map(route => (
-                <Route
-                    key={route.path}
-                    path={route.path}
-                    element={<route.element />}
-                />
-            ))}
-            <Route path='/*' element= {<Navigate to='/myNotes' />} />
-        </Routes>
-        
-    ) : (
-        
-        <Routes>
-            {publicRoutes.map(route => (
-                <Route
-                    key={route.path}
-                    path={route.path}
-                    element={<route.element/>}
-                />
-            ))}
-            <Route path='/*' element= {<Navigate to='/signIn' />} />
-        </Routes>
-        
-    )
-}
-
-export default AppRouter
+export default AppRouter;

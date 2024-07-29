@@ -10,3 +10,4 @@ export const chekAuth = async (login:string, password:string) => {
     const response = await api.get('/users', { params: { login, password } })
     return response.data
 }
+
