@@ -1,27 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useAuthCtx } from "../../hooks/useContext";
 import { privateRoutes, publicRoutes } from "./router";
+import { authContext } from "../context/CreateContext";
+
+
 
 const AppRouter: React.FC = () => {
-  const { isAuth } = useAuthCtx();
-  console.log(isAuth);
+    
+    const useAuthCtx = () => {
+        const context = useContext(authContext);
+        if (!context) {
+            throw new Error('authContext must be used within an AuthProvider');
+        }
+        return context;
+    };
+    
+    const { isAuth } = useAuthCtx();
+    console.log(isAuth);
 
-  return isAuth ? (
-    <Routes>
-      {privateRoutes.map((route) => (
-        <Route key={route.path} path={route.path} element={<route.element />} />
-      ))}
-      <Route path="/*" element={<Navigate to="/myNotes" />} />
-    </Routes>
-  ) : (
-    <Routes>
-      {publicRoutes.map((route) => (
-        <Route key={route.path} path={route.path} element={<route.element />} />
-      ))}
-      <Route path="/*" element={<Navigate to="/signIn" />} />
-    </Routes>
-  );
+    return isAuth ? (
+        <Routes>
+            {privateRoutes.map((route) => (
+                <Route key={route.path} path={route.path} element={<route.element />} />
+            ))}
+            <Route path="/*" element={<Navigate to="/myNotes" />} />
+        </Routes>
+    ) : (
+        <Routes>
+            {publicRoutes.map((route) => (
+                <Route key={route.path} path={route.path} element={<route.element />} />
+            ))}
+            <Route path="/*" element={<Navigate to="/signIn" />} />
+        </Routes>
+    );
 };
 
 export default AppRouter;
