@@ -57,8 +57,9 @@ const SignInForm: React.FC = () => {
     const onSubmit: SubmitHandler<FormInputs> = async (data) => {
         const userID = Date.now().toString();
         const userData = {
-        id: userID,
-        ...data,
+            id: userID,
+                ...data,
+            notes: []
         };
 
         try {
