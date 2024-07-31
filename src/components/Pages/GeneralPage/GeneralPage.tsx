@@ -1,42 +1,24 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import cl from './GeneralPage.module.scss'
 import Navbar from '../../UI/Navbar/Navbar'
 import FormButton from '../../UI/Button/FormButton'
 import { useNavigate } from 'react-router-dom'
-import { authContext } from '../../context/CreateContext'
-import { getAllNotesByID } from '../../../API/NotesFetching'
-// import { getAllNotesByID } from '../../../API/NotesFetching'
+import Notes from './Notes/Notes'
 
 const GeneralPage:React.FC = () => {
     const navigate = useNavigate()
 
-    const useAuthCtx = () => {
-        const context = useContext(authContext);
-        if (!context) {
-            throw new Error('authContext must be used within an AuthProvider');
-        }
-        return context;
-    };
-    
-    
-    
-    const { isUserID } = useAuthCtx();
-
-
-    const notesArray = getAllNotesByID(isUserID)
-
     const addNote = () => {
         navigate('/createNote')
-        console.log(notesArray);
     }
-
-    
 
 
     return (
         <main>
             <Navbar title='MyNotes' />
             
+            <Notes />
+
             <FormButton className={cl.themeSwither}>Dark/Light</FormButton>
 
             <FormButton className={cl.addNote} onClick={addNote}>

@@ -1,0 +1,21 @@
+.notes {
+    list-style: none;
+    margin: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .note {
+        border: 2px solid #888888;
+        border-radius: 20px;
+
+        padding: 12px;
+        margin: 12px 0;
+        
+        width: 900px;
+        min-height: 100px;
+        max-height: 300px;
+    }
+}
