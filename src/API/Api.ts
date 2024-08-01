@@ -8,6 +8,8 @@ export const createUser = (userData: {}) => api.post('/users', userData)
 
 export const chekAuth = async (login:string, password:string) => {
     const response = await api.get('/users', { params: { login, password } })
-    return response.data
+    const targetUser = response.data
+    console.log(targetUser);
+    return targetUser
 }
 

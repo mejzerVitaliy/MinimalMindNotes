@@ -1,9 +1,9 @@
+import Cookies from 'js-cookie';
 import React, { useContext, useEffect, useState } from 'react';
 import { deleteNoteByID, getAllNotesByID } from '../../../../API/NotesFetching';
 import { authContext } from '../../../context/CreateContext';
-import cl from './Notes.module.scss';
 import FormButton from '../../../UI/Button/FormButton';
-
+import cl from './Notes.module.scss';
 
 const Notes: React.FC = () => {
     const [notesArray, setNotesArray] = useState<any[]>([])
@@ -16,11 +16,13 @@ const Notes: React.FC = () => {
         return context;
     };
     
-    const { isUserID } = useAuthCtx();
+    const { isUserID, setIsUserID } = useAuthCtx();
+    
+    
 
     const getNotesArray = async () => {
-        const notesArray = await getAllNotesByID(isUserID)
-        setNotesArray(notesArray || [])
+        const getNotesArray = await getAllNotesByID(isUserID)
+        setNotesArray(getNotesArray)
         
         return notesArray
     }
@@ -34,17 +36,31 @@ const Notes: React.FC = () => {
     }
 
     useEffect(() => {
-        getNotesArray()
-    }, [])
-    
+        const loggedUser = Cookies.get("userID")
+        console.log(loggedUser)
+
+        setIsUserID(loggedUser)
+        
+        
+    }, [isUserID])
+
+    useEffect(() => {
+        getNotesArray();
+    }, [notesArray.length])
+
+
     return (
         <ul className={cl.notes}>
-            {notesArray.map(note => (
-                <li key={note.id} className={cl.note}>
-                    <h1>{note.title}</h1>
-                    <FormButton onClick={() => deleteNote(note.id)}>delete note</FormButton>
-                </li>
-            ))}
+            {
+            notesArray.length
+                ? notesArray.reverse().map(note => (
+                    <li key={note.id} className={cl.note}>
+                        <h1>{note.title}</h1>
+                        <FormButton onClick={() => deleteNote(note.id)}>delete note</FormButton>
+                    </li>
+                ))
+                : <h1 className={cl.haveNotNotes}> you don't have any notes yet </h1>
+            }
         </ul>
     )
 }

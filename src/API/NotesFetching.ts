@@ -8,7 +8,7 @@ export const getAllNotesByID = async (isUserID: string | null | undefined) => {
         const response = await axios.get(urlByID);
         return response.data.notes;
     } catch (error) {
-        console.error("Notes undefined");
+        return []
     }
 };
 

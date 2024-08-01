@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import SignInInput from "../../UI/Inputs/SignInInput";
-// import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { createUser } from "../../../API/Api";
 import FormButton from "../../UI/Button/FormButton";
@@ -26,7 +25,7 @@ const SignInForm: React.FC = () => {
     };
     
     
-    const { isAuth, setIsAuth } = useAuthCtx();
+    const { isAuth, setIsAuth, setIsUserID } = useAuthCtx();
 
     const {
         register,
@@ -54,7 +53,7 @@ const SignInForm: React.FC = () => {
         return value === password1 || "passwords don't match";
     };
 
-    const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+    const onSubmitSignIn: SubmitHandler<FormInputs> = async (data) => {
         const userID = Date.now().toString();
         const userData = {
             id: userID,
@@ -63,21 +62,22 @@ const SignInForm: React.FC = () => {
         };
 
         try {
-        await createUser(userData);
+            await createUser(userData);
 
-        console.log(userData);
-        setIsAuth(true);
+            console.log(userData);
+            setIsAuth(true);
 
-        localStorage.setItem("isAuth", `${isAuth}`);
-        Cookies.set("userID", userData.id, { expires: 365 });
+            localStorage.setItem("isAuth", `${isAuth}`);
+            setIsUserID(userData.id)
+            Cookies.set("userID", userData.id, { expires: 365 });
         } catch (error) {
-        console.error("Error creating user:", error);
+            console.error("Error creating user:", error);
         }
     };
 
     return (
         <div className={cl.center}>
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
+        <form onSubmit={handleSubmit(onSubmitSignIn)} className={cl.form}>
             <h1 className={cl.title}>Registration</h1>
 
             <SignInInput

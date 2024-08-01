@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addUserNote } from "../../../API/notesServise";
-
+import { authContext } from "../../context/CreateContext";
 import FormButton from "../../UI/Button/FormButton";
 import Navbar from "../../UI/Navbar/Navbar";
 import cl from "./CreateNote.module.scss";
-import { authContext } from "../../context/CreateContext";
 
 const CreateNote: React.FC = () => {
     
@@ -62,7 +61,7 @@ const CreateNote: React.FC = () => {
             </svg>
         </FormButton>
 
-        <div className={cl.note}>
+        <main className={cl.note}>
             <textarea
             maxLength={40}
             className={cl.titleOfNote}
@@ -75,7 +74,7 @@ const CreateNote: React.FC = () => {
             placeholder="description"
             onChange={(e) => setNote({ ...note, body: e.target.value })}
             ></textarea>
-        </div>
+        </main>
 
         <FormButton
             className={cl.createNote}

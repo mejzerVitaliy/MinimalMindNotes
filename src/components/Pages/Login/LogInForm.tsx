@@ -5,6 +5,7 @@ import { chekAuth } from "../../../API/Api";
 import FormButton from "../../UI/Button/FormButton";
 import cl from "./LoginForm.module.scss";
 import { authContext } from "../../context/CreateContext";
+import Cookies from "js-cookie";
 
 interface FormInputs {
   login: string;
@@ -23,7 +24,7 @@ const LoginForm: React.FC = () => {
     
     
     
-    const { isAuth, setIsAuth } = useAuthCtx();
+    const { isAuth, setIsAuth, setIsUserID } = useAuthCtx();
 
     const {
         register,
@@ -33,7 +34,6 @@ const LoginForm: React.FC = () => {
         mode: "all",
     });
 
-    // const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -41,26 +41,28 @@ const LoginForm: React.FC = () => {
         setShowPassword((visibility) => !visibility);
     };
 
-    const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+    const onSubmitLogIn: SubmitHandler<FormInputs> = async (data) => {
         try {
-        const users = await chekAuth(data.login, data.password);
+            const users = await chekAuth(data.login, data.password);
 
-        if (users.length > 0) {
-            console.log("User logged in:", users[0]);
+            if (users.length > 0) {
+                console.log("User logged in:", users[0]);
 
-            setIsAuth(true);
-            localStorage.setItem("isAuth", `${isAuth}`);
-        } else console.error("Invalid login or password");
+                setIsAuth(true);
+                setIsUserID(users[0].id)
+                localStorage.setItem("isAuth", `${isAuth}`);
+                Cookies.set("userID", users[0].id, {expires: 365})
+                
+            } else console.error("Invalid login or password");
 
-        console.log(data);
         } catch (error) {
-        console.error("Error logging in:", error);
+            console.error("Error logging in:", error);
         }
     };
 
     return (
         <div className={cl.center}>
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
+        <form onSubmit={handleSubmit(onSubmitLogIn)} className={cl.form}>
             <h1 className={cl.title}>Login</h1>
 
             <SignInInput
