@@ -7,6 +7,8 @@ import Navbar from "../../UI/Navbar/Navbar";
 import cl from "./CreateNote.module.scss";
 
 const CreateNote: React.FC = () => {
+    const navigate = useNavigate();
+    const [note, setNote] = useState({ title: "", body: "" })
     
     const useAuthCtx = () => {
         const context = useContext(authContext);
@@ -14,31 +16,24 @@ const CreateNote: React.FC = () => {
             throw new Error('authContext must be used within an AuthProvider');
         }
         return context;
-    };
-    
-    
-    
-    const { isUserID } = useAuthCtx();
-
-    const navigate = useNavigate();
+    }
+    const { isUserID } = useAuthCtx()
 
     const back = () => {
         navigate("/myNotes");
-    };
+    }
 
-    const [note, setNote] = useState({ title: "", body: "" });
-
-    const addNewNote = () => {
+    const addNewNote = async () => {
         const newNote = {
-        ...note,
-        id: Date.now(),
+            ...note,
+            id: Date.now(),
         };
+        console.log(newNote, "Your ID:", isUserID)
 
-        console.log(newNote, "Your ID:", isUserID);
+        await addUserNote(isUserID, newNote);
 
-        addUserNote(isUserID, newNote);
         setNote({ title: "", body: "" });
-
+        alert(`Notes '${newNote.title}' created succseful!!!`)
         navigate("/myNotes");
     };
 
