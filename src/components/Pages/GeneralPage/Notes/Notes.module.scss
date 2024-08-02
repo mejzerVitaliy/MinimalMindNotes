@@ -24,3 +24,22 @@
         color: #88888867;
     }
 }
+
+.removeBtn {
+  background-color: red;
+}
+
+.notesAnimation-enter {
+    transform: translateX(-350px);
+}
+.notesAnimation-enter-active {
+    transform: translateX(0px);
+    transition: all 500ms ease-in;
+}
+.notesAnimation-exit {
+    opacity: 1;
+}
+.notesAnimation-exit-active {
+    transform: translateX(-350px);
+    transition: all 500ms ease-in;
+}
