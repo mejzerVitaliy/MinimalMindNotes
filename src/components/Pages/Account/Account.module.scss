@@ -1,23 +1,73 @@
-.navigate {
-    background-color: gray;
-    margin: 0;
-    width: 100%;
+.accountPage {
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1{
-    margin: 0;
+
+.userAccount {
+    padding: 20px 40px;
+
+    display: flex;
+    align-items: center;
+
+    border: 8px double #525252;
+    border-radius: 30px;
+
+    width: 1000px;
+
+    .userInfo {
+        margin-left: 40px;
+    }
+
+
+
 }
 
 .back {
-    margin: 20px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
     position: fixed;
-    bottom: 40px;
+    top: 140px;
     left: 40px;
+
+    transition: 0.2s;
+}
+
+.back:hover {
+    transform: scale(1.25);
 }
 
 .logout {
     margin: 20px;
+
     position: fixed;
     bottom: 40px;
     right: 40px;
+
+    width: 120px;
+    height: 60px;
+
+    border-radius: 30px;
+    border: 2px solid #757575;
+
+    background-color: #4d0000;
+
+    transition: 0.4s;
+    cursor: pointer;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.logout:hover {
+    transform: scale(1.25);
+    background-color: #8e0000;
 }

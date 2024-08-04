@@ -53,13 +53,16 @@ const GeneralPage:React.FC = () => {
     return (
         <main>
             <Navbar title='MyNotes' />
-            
-            <Notes notesArray={notesArray} deleteNote={deleteNote}/>
 
+            <section className={cl.notes}>
+                <Notes notesArray={notesArray} deleteNote={deleteNote}/>
+            </section>
+        
             <FormButton className={cl.themeSwither}>Dark/Light</FormButton>
 
             <FormButton className={cl.addNote} onClick={addNote}>
-                add new note
+                <span className={cl.plusIcon}>+</span>
+                <span className={cl.addNoteText}>Add Note</span>
             </FormButton>
         </main>
     )

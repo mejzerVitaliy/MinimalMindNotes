@@ -1,9 +1,48 @@
 .addNote {
-    width: 150px;
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
+    border: none;
+    
     position: fixed;
     right: 40px;
     bottom: 40px;
+    transition: 0.5s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .plusIcon {
+        font-size: 30px;
+        margin: 0;
+        transition: 1s ease-in-out;
+        opacity: 1;
+    }
+
+    .addNoteText {
+        opacity: 0;
+        white-space: nowrap;
+        transition:  1s ease-in-out;
+        margin-left: 4px;
+        display: none;
+    }
+
+    &:hover {
+        width: 150px;
+        padding: 10px 20px;
+        border-radius: 20px;
+
+        .plusIcon {
+            transform: rotate(360deg);
+        }
+
+        .addNoteText {
+            opacity: 1;
+            display: inline;
+        }
+    }
 }
 
 .themeSwither {
@@ -11,4 +50,6 @@
     top: 140px;
     right: 10px;
 }
+
+
 

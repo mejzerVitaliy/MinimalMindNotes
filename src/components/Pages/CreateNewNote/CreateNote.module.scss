@@ -76,14 +76,21 @@
 }
 
 .back {
-    border-radius: 50%;
     padding: 0;
+    margin: 0;
     background: none;
     border: none;
+    cursor: pointer;
     
     position: fixed;
     top: 140px;
     left: 40px;
+
+    transition: 0.2s;
+}
+
+.back:hover {
+    transform: scale(1.25);
 }
 
 .createNote {

@@ -1,3 +1,5 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import React, { useContext, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
@@ -5,7 +7,8 @@ import AppRouter from "./components/AppRouter/AppRouter";
 import { authContext } from "./components/context/CreateContext";
 
 const App: React.FC = () => {
-    
+    AOS.init()
+
     const useAuthCtx = () => {
         const context = useContext(authContext);
         if (!context) {

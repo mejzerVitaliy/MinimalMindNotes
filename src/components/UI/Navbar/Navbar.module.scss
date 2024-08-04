@@ -2,7 +2,6 @@
     background: #888;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -10,6 +9,8 @@
 
     position:fixed;
     top: 0;
+
+    z-index: 1000;
 
     header {
         margin: 0 20px;
@@ -44,13 +45,13 @@
         margin: 0 22px;
     }
 
-    svg {
-        transition: 0.3s;
+    .accountIcon {
+        transition: 0.5s;
         margin: 0 20px;
         cursor: pointer;
     }
 
-    svg:hover{
-        transform: scale(1.2);
+    .accountIcon:hover {
+        transform: scale(1.25) rotateY(180deg);
     }
 }

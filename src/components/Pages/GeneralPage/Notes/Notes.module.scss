@@ -1,22 +1,51 @@
 .notes {
     list-style: none;
-    margin: 150px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    margin: 150px 0 50px 0;
+
     .note {
         border: 2px solid #888888;
         border-radius: 20px;
 
         padding: 12px;
-        margin: 12px 0;
+        margin: 20px 0;
         
         width: 900px;
         min-height: 100px;
         max-height: 300px;
+
+        z-index: 100;
+
+        display: flex;
+        justify-content: space-between;
+
+        .removeBtn {
+            padding: 0;
+            // margin: 0 8px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: none;
+            position: relative;
+            top: 8px;
+            right: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .removeBtn:hover {
+            transform: scale(1.25);
+            background-color: #be0000;
+
+            svg {
+                fill: white;
+            }
+        }
     }
 
     .haveNotNotes {
@@ -25,9 +54,7 @@
     }
 }
 
-.removeBtn {
-  background-color: red;
-}
+
 
 .notesAnimation-enter {
     transform: translateX(-350px);
