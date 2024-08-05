@@ -71,3 +71,19 @@
     transform: scale(1.25);
     background-color: #8e0000;
 }
+
+.modalBtns {
+    background-color: #525252;
+    border-radius: 20px;
+    border: none;
+    transition: 0.3s;
+
+    width: 100px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+.modalBtns:hover {
+    transform: scale(1.25);
+}

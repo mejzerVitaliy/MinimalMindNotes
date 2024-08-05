@@ -54,19 +54,18 @@
     }
 }
 
+.modalBtns {
+    background-color: #525252;
+    border-radius: 20px;
+    border: none;
+    transition: 0.3s;
 
+    width: 100px;
+    height: 40px;
 
-.notesAnimation-enter {
-    transform: translateX(-350px);
+    cursor: pointer;
 }
-.notesAnimation-enter-active {
-    transform: translateX(0px);
-    transition: all 500ms ease-in;
-}
-.notesAnimation-exit {
-    opacity: 1;
-}
-.notesAnimation-exit-active {
-    transform: translateX(-350px);
-    transition: all 500ms ease-in;
+
+.modalBtns:hover {
+    transform: scale(1.25);
 }

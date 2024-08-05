@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import cl from './Modal.module.scss'
 
 interface ModalPropsTypes{
     style?: {}
     message?: string
+    children?: ReactNode
+    onClose?: () => void
 }
 
-const Modal: React.FC<ModalPropsTypes> = ({style, message}) => {
+const Modal: React.FC<ModalPropsTypes> = ({style, message, children, onClose}) => {
+    const closeModal = (e: React.MouseEvent) => {
+        if (e.target === e.currentTarget && onClose) {
+            return onClose()
+        }
+    }
     return (
-        <main className={cl.modalPage} style={style}>
-            <section className={cl.modalWindow}>
-                <h2>{message}</h2>
+        <main className={cl.modalPage}  onClick={closeModal}>
+            <section className={cl.modalWindow} style={style}>
+                <h3>{message}</h3>
+                <div className={cl.buttons}>
+                    {children}
+                </div>
+                
             </section>
         </main>
     )

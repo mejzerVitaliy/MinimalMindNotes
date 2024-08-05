@@ -93,9 +93,23 @@
     transform: scale(1.25);
 }
 
+
 .createNote {
-    margin: 20px;
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 80px;
+    right: 80px;
+    
+    background-color: #525252;
+    border-radius: 20px;
+    border: none;
+    transition: 0.3s;
+
+    width: 100px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+.createNote:hover {
+    transform: scale(1.25);
 }
