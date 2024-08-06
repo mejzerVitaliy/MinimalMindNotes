@@ -8,9 +8,17 @@ import Navbar from '../../UI/Navbar/Navbar'
 import cl from './GeneralPage.module.scss'
 import Notes from './Notes/Notes'
 
-const GeneralPage:React.FC = () => {
+interface NotesTypes{
+    title: string
+    body: string
+    id: number
+}
+
+
+const GeneralPage: React.FC = () => {
     const navigate = useNavigate()
-    const [notesArray, setNotesArray] = useState<any[]>([])
+    const [notesArray, setNotesArray] = useState<NotesTypes[]>([])
+    const [searchQuery, setSearchQuery] = useState<string>('')
 
     const useAuthCtx = () => {
         const context = useContext(authContext);
@@ -44,18 +52,43 @@ const GeneralPage:React.FC = () => {
         setIsUserID(loggedUser)
     }, [isUserID])
 
+
+    
+
+    const searching = (query: string, notes: NotesTypes[]) => {
+        if (!query) return notes;
+        return notes.filter(note =>
+            note.title.toLowerCase().includes(query.toLowerCase()) ||
+            note.body.toLowerCase().includes(query.toLowerCase())
+        )
+    }
+    
+
+    const handleChangeSearcher = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setSearchQuery(e.target.value)
+        localStorage.setItem('searchQuery', e.target.value)
+    }
+
+    
+    
+    const filteredNotes = searching(searchQuery, notesArray)
+
     useEffect(() => {
         getUserIDfromCookies()
         getNotesArray();
         
-    }, [ isUserID, notesArray.length])
+    }, [isUserID, notesArray.length])
+    
+    useEffect(() => {
+        setSearchQuery(localStorage.getItem('searchQuery') || '')
+    }, [])
 
     return (
         <main>
             <Navbar title='MyNotes' />
 
             <section className={cl.notes}>
-                <Notes notesArray={notesArray} deleteNote={deleteNote}/>
+                <Notes value={searchQuery} onChange={handleChangeSearcher} notesArray={filteredNotes} deleteNote={deleteNote}/>
             </section>
         
             <FormButton className={cl.themeSwither}>Dark/Light</FormButton>

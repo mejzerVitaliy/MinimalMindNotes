@@ -18,6 +18,7 @@ const Modal: React.FC<ModalPropsTypes> = ({style, message, children, onClose}) =
         <main className={cl.modalPage}  onClick={closeModal}>
             <section className={cl.modalWindow} style={style}>
                 <h3>{message}</h3>
+                <hr />
                 <div className={cl.buttons}>
                     {children}
                 </div>

@@ -15,11 +15,15 @@ const Navbar: React.FC<NavbarPropsTypes> = ({ title}) => {
         navigate('/account')
     }
 
+    const toAbout = () => {
+        navigate('/aboutMinimalMind')
+    }
+
     return (
         <nav className={cl.navbar}>
             
             <header>
-                <h1 className='title'>MinimalMind |<span>{title}</span> </h1>
+                <h1 className='title' onClick={toAbout}>MinimalMind |<span>{title}</span> </h1>
             </header>
 
             <div>

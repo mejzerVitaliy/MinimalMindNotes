@@ -9,6 +9,10 @@
 
 .userAccount {
     padding: 20px 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     align-items: center;
@@ -80,6 +84,8 @@
 
     width: 100px;
     height: 40px;
+
+    border: 2px solid #2d2d2d;
 
     cursor: pointer;
 }

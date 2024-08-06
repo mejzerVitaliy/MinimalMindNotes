@@ -86,7 +86,13 @@ const CreateNote: React.FC = () => {
                 Save
             </FormButton>
 
-            {isModalOpen && <Modal style={{animation: 'none'}} message="The note was successfully saved and added!" />}
+            {isModalOpen && <Modal
+                style={{
+                    animation: 'none',
+                    height: '100px'
+                }}
+                message="The note was successfully saved and added!"
+            />}
         </section>
     );
 };
