@@ -3,14 +3,13 @@ import FormButton from '../../../UI/Button/FormButton';
 import cl from './Notes.module.scss';
 import Modal from '../../../UI/ModalWindow/Modal';
 import Searcher from '../../../UI/Searcher/Searcher';
+import { useNavigate } from 'react-router-dom';
 
 interface NotesTypes{
     title: string
     body: string
     id: number
 }
-
-
 interface NotesPropsArray{
     notesArray: NotesTypes[] | null,
     deleteNote: (value: number) => void
@@ -18,9 +17,8 @@ interface NotesPropsArray{
     value: string
 }
 
-
-
 const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, value }) => {
+    const navigate = useNavigate()
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [noteIdToDelete, setNoteIdToDelete] = useState<number>(0);
 
@@ -34,11 +32,9 @@ const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, va
         setNoteIdToDelete(0)
     }
 
-    // useEffect(() => {
-    //     const getSearchQuery = localStorage.getItem('searchQuery') || ''
-
-    //     setSearchQuery(getSearchQuery)
-    // }, [searchQuery])
+    const toThisNote = (noteID: number) => {
+        navigate(`/note/${noteID}`)
+    }
 
     return (
         <main className={cl.notes}>
@@ -49,7 +45,12 @@ const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, va
             ) : (
                 <ul>
                     {notesArray.map(note => (
-                        <li key={note.id} className={cl.note} data-aos="zoom-in">
+                        <li
+                            key={note.id}
+                            className={cl.note}
+                            data-aos="zoom-in"
+                            onClick={() => toThisNote(note.id)}
+                        >
                             <h1>{note.title}</h1>
                             <FormButton onClick={() => modalOpening(note.id)} className={cl.removeBtn}>
                                 <svg

@@ -4,6 +4,7 @@ import Account from "../Pages/Account/Account"
 import Notes from "../Pages/GeneralPage/GeneralPage"
 import CreateNote from "../Pages/CreateNewNote/CreateNote"
 import AboutPage from "../Pages/About/AboutPage"
+import Note from "../Pages/GeneralPage/Note/Note"
 
 interface Routes {
     path: string,
@@ -18,6 +19,7 @@ export const publicRoutes: Routes[] = [
 export const privateRoutes: Routes[] = [
     { path: '/account', element: Account },
     { path: '/myNotes', element: Notes },
+    { path: '/note/:noteID', element: Note},
     { path: '/createNote', element: CreateNote },
     { path: '/aboutMinimalMind', element: AboutPage }
 ]

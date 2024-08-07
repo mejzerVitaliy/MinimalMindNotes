@@ -25,7 +25,7 @@ export const updateUserData = async (userID: string| null | undefined, updatedUs
 
 
 
-export const addUserNote = async (userID: string| null | undefined, note: any) => {
+export const addUserNote = async (userID: string | null | undefined, note: any) => {
     try {
         const user = await getUserByID(userID)
 
@@ -37,4 +37,38 @@ export const addUserNote = async (userID: string| null | undefined, note: any) =
         throw error;
     }
 }
+
+export const updateUserNote = async (
+    userID: string | null | undefined,
+    updatedNote: {
+        title: string | null | undefined,
+        body: string | null | undefined,
+        id: number
+    },
+    noteID: number
+) => {
+    try {
+        const user = await getUserByID(userID);
+
+        if (!user.notes || !Array.isArray(user.notes)) {
+            console.error('Notes array is undefined or not an array');
+            return;
+        }
+
+        const noteIndex = user.notes.findIndex((note: any) => note.id === noteID);
+
+        if (noteIndex === -1) {
+            console.error(`Note with ID ${noteID} not found`);
+            return;
+        }
+
+        user.notes[noteIndex] = { ...user.notes[noteIndex], ...updatedNote };
+
+        await updateUserData(userID, user);
+        console.log(`Note with ID ${noteID} successfully updated`);
+    } catch (error) {
+        console.error('Error updating note:', error);
+        throw error;
+    }
+};
 

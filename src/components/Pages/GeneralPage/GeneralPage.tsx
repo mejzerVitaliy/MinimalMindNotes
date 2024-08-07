@@ -53,7 +53,7 @@ const GeneralPage: React.FC = () => {
     }, [isUserID])
 
 
-    
+    // ДОБАВИТЬ ПРОВЕРКУ НА НАЛИЧИЕ ТЕЛА И ТАЙТЛА
 
     const searching = (query: string, notes: NotesTypes[]) => {
         if (!query) return notes;
