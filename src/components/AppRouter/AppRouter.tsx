@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "./router";
 import { authContext } from "../context/CreateContext";
-
-
+import { privateRoutes, publicRoutes } from "./router";
 
 const AppRouter: React.FC = () => {
-    
     const useAuthCtx = () => {
         const context = useContext(authContext);
         if (!context) {
@@ -14,9 +11,7 @@ const AppRouter: React.FC = () => {
         }
         return context;
     };
-    
     const { isAuth } = useAuthCtx();
-    console.log(isAuth);
 
     return isAuth ? (
         <Routes>
@@ -34,5 +29,4 @@ const AppRouter: React.FC = () => {
         </Routes>
     );
 };
-
 export default AppRouter;

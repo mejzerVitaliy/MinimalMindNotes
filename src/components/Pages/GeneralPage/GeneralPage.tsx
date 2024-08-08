@@ -56,11 +56,18 @@ const GeneralPage: React.FC = () => {
     // ДОБАВИТЬ ПРОВЕРКУ НА НАЛИЧИЕ ТЕЛА И ТАЙТЛА
 
     const searching = (query: string, notes: NotesTypes[]) => {
+        if (notes.length === 0) return null
         if (!query) return notes;
-        return notes.filter(note =>
+        if (notes.every(note =>
             note.title.toLowerCase().includes(query.toLowerCase()) ||
-            note.body.toLowerCase().includes(query.toLowerCase())
-        )
+            note.body.toLowerCase().includes(query.toLowerCase()))
+        ) {
+            return notes.filter(note =>
+                note.title.toLowerCase().includes(query.toLowerCase()) ||
+                note.body.toLowerCase().includes(query.toLowerCase())
+            )
+        } else return []
+        
     }
     
 

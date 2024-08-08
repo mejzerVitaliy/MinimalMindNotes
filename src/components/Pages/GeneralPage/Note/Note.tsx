@@ -12,7 +12,6 @@ import Modal from '../../../UI/ModalWindow/Modal'
 const Note: React.FC = () => {
     const { noteID } = useParams<{ noteID: string }>()
     const noteIdNum = parseInt(noteID || "", 10);
-
     const navigate = useNavigate()
     const [noteTitle, setNoteTitle] = useState<string | null>()
     const [noteBody, setNoteBody] = useState<string | null>()
@@ -68,24 +67,26 @@ const Note: React.FC = () => {
         }, 2500)
     }
         
-
     useEffect(() => {
         const userID = Cookies.get('userID')
         setIsUserID(userID)
     }, [isUserID])
-
     useEffect(() => {
         getNoteData()
 
     }, [noteIdNum])
-
     
-
     return (
         <section>
-            <Navbar title={`Note ${noteID}`} />
+            <Navbar title={`${noteTitle?.slice(0, 10)}...`} />
 
-            <FormButton onClick={open2Modal} className={cl.back}>
+            <FormButton
+                onClick={note.title===noteTitle && note.body===noteBody
+                    ? back
+                    : open2Modal  
+                }
+                className={cl.back}
+            >
                 <svg
                     width="44"
                     height="44"
@@ -101,13 +102,17 @@ const Note: React.FC = () => {
             </FormButton>
 
             <main className={cl.note}>
-                <div>Note ID: {noteID}</div>
                 <textarea
                     maxLength={40}
                     className={cl.titleOfNote}
                     placeholder="title of note"
                     defaultValue={noteTitle || ''}
-                    onChange={(e) => setNote({ ...note, title: e.target.value })}
+                    onChange={(e) => {
+                        setNote({
+                            ...note, title: e.target.value    
+                        })
+                        setIs2ModalOpen
+                    }}
                 ></textarea>
 
                 <textarea

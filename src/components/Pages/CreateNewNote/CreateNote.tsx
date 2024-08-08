@@ -45,7 +45,7 @@ const CreateNote: React.FC = () => {
     };
 
     return (
-        <section>
+        <section >
             <Navbar title="Create new Note" />
 
             <FormButton onClick={back} className={cl.back}>
@@ -81,7 +81,7 @@ const CreateNote: React.FC = () => {
             <FormButton
                 className={cl.createNote}
                 onClick={addNewNote}
-                disabled={note.body && note.title ? false : true}
+                disabled={ note.title ? false : true}
             >
                 Save
             </FormButton>

@@ -1,21 +1,17 @@
 import React from 'react'
-import Navbar from '../../UI/Navbar/Navbar'
+import useBackTo from '../../../hooks/useBackTo'
 import FormButton from '../../UI/Button/FormButton'
-import { useNavigate } from 'react-router-dom'
+import Navbar from '../../UI/Navbar/Navbar'
 import cl from './AboutPage.module.scss'
+import Technologies from './Technologies'
 
 const AboutPage: React.FC = () => {
-    const navigate = useNavigate()
-
-    const back = () => {
-        navigate('/myNotes')
-    }
-    
+    const BackToMenu = useBackTo('/myNotes')
     return (
         <main>
             <Navbar title='About MinimalMind' />
             
-            <FormButton onClick={back} className={cl.back}>
+            <FormButton onClick={BackToMenu} className={cl.back}>
                 <svg
                     width="44"
                     height="44"
@@ -50,82 +46,14 @@ const AboutPage: React.FC = () => {
 
                 <hr />
 
-                <article  data-aos="zoom-in-down">
-
-                    <h2>Technologies Used:</h2>
-
-                    <ul>
-                        <li className={cl.technologies}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000">Languages:</h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://www.typescriptlang.org/"><b>TypeScript (TS):</b></a> The application is built with TypeScript, ensuring type safety and better code quality.</li>
-                                <li><a target='_blank' href="https://sass-lang.com/"><b>SCSS:</b></a> For enhanced styling capabilities, we use SCSS, which allows for more organized and modular CSS.</li>
-                                <li><a target='_blank' href="https://tailwindcss.com/"><b>Tailwind CSS:</b></a> Tailwind CSS is utilized for utility-first styling, enabling rapid UI development with a consistent design system.</li>
-                            </ul>
-                        </li>
-                        
-
-                        <li className={cl.technologi}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000">Frameworks:</h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://react.dev/"><b>React: </b></a> The application is powered by React, a popular JavaScript library for building user interfaces.</li>
-                            </ul>
-                        </li>
-                        
-
-                        <li className={cl.technologi}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000">Routing:</h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://reactrouter.com/en/main"><b>React Router DOM:</b></a> For seamless navigation and routing within the application, i used React Router DOM.</li>
-                            </ul>
-                        </li>
-                        
-
-                        <li className={cl.technologi}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000">Forms:</h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://react-hook-form.com/"><b>React Hook Form:</b></a> This library is used for managing form state and validation, making form handling more efficient and less error-prone.</li>
-                            </ul>
-                        </li>
-                        
-
-                        <li className={cl.technologi}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000"> Animations: </h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://michalsnik.github.io/aos/"><b>AOS (Animate on Scroll):</b></a> To add appealing animations as users scroll through the app, we utilize AOS, providing smooth visual effects that enhance the user experience.</li>
-                            </ul>
-                        </li>
-                        
-
-                        <li className={cl.technologi}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000">API Requests:</h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://axios-http.com/"><b>Axios:</b></a>  For handling API requests, we rely on Axios, which simplifies the process of communicating with the server.</li>
-                            </ul>
-                        </li>
-                        
-
-                        <li className={cl.technologi}>
-                            <h3 data-aos="fade-right" data-aos-duration="1000">Database:</h3>
-                            <ul data-aos="zoom-out-up" className={cl.technologi}>
-                                <li><a target='_blank' href="https://www.npmjs.com/package/json-server"><b>JSON Server:</b></a>  The application uses JSON Server as a mock backend to simulate API interactions and store data persistently during development.</li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-
-                </article>
+                <Technologies />
 
                 <hr />
 
                 <h2>Code of this project</h2>
-                <h4>You can view code in <a href="https://github.com/mejzerVitaliy/MinimalMindNotes">my Github repository</a></h4>
-                
-                
+                <h4>You can view code in <a href="https://github.com/mejzerVitaliy/MinimalMindNotes">my Github repository</a></h4>    
             </section>
-            
         </main>
     )
 }
-
 export default AboutPage

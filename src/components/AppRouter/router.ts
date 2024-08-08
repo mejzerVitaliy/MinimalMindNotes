@@ -1,11 +1,10 @@
-import SignInForm from "../Pages/Registration/SignInForm"
-import LogInForm from "../Pages/Login/LogInForm"
-import Account from "../Pages/Account/Account"
-import Notes from "../Pages/GeneralPage/GeneralPage"
-import CreateNote from "../Pages/CreateNewNote/CreateNote"
 import AboutPage from "../Pages/About/AboutPage"
+import Account from "../Pages/Account/Account"
+import CreateNote from "../Pages/CreateNewNote/CreateNote"
+import Notes from "../Pages/GeneralPage/GeneralPage"
 import Note from "../Pages/GeneralPage/Note/Note"
-
+import LogInForm from "../Pages/Login/LogInForm"
+import SignInForm from "../Pages/Registration/SignInForm"
 interface Routes {
     path: string,
     element: React.FC
@@ -15,7 +14,6 @@ export const publicRoutes: Routes[] = [
     { path: '/signIn', element: SignInForm  },
     { path: '/logIn', element: LogInForm }
 ]
-
 export const privateRoutes: Routes[] = [
     { path: '/account', element: Account },
     { path: '/myNotes', element: Notes },

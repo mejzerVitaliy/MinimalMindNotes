@@ -1,38 +1,25 @@
-// @import "tailwindcss/base";
-// @import "tailwindcss/components";
-// @import "tailwindcss/utilities";
 
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; 
+  line-height: 1.5; 
+  font-weight: 400; 
 
-  color-scheme: light dark;
-  background: #2d2d2d;
+  color-scheme: light dark; 
+  background-image: url(src/assets/bg-image.png);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none; 
+  text-rendering: optimizeLegibility; 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
 
 }
-
-
 *, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; 
+  padding: 0; 
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

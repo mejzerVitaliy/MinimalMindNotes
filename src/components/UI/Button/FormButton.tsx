@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 interface MyButton {
     disabled?: boolean,
     className?: string,
-    onClick?: () => void ,
+    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined,
     children?: string | ReactNode
 }
 
