@@ -15,7 +15,8 @@ const Note: React.FC = () => {
     const navigate = useNavigate()
     const [noteTitle, setNoteTitle] = useState<string | null>()
     const [noteBody, setNoteBody] = useState<string | null>()
-    const [note, setNote] = useState({ title: noteTitle, body: noteBody, id: noteIdNum })
+    const [noteLiked, setNoteLiked] = useState<boolean>()
+    const [note, setNote] = useState({ title: noteTitle, body: noteBody, id: noteIdNum, liked: noteLiked })
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [is2ModalOpen, setIs2ModalOpen] = useState<boolean>(false)
 
@@ -51,6 +52,7 @@ const Note: React.FC = () => {
         if (note) {
             setNoteTitle(note.title)
             setNoteBody(note.body)
+            setNoteLiked(note.liked)
             setNote(note)
         }
     }
@@ -60,8 +62,12 @@ const Note: React.FC = () => {
 
         setTimeout(async () => {
             setIsModalOpen(false)
+            const newNote = {
+                ...note,
+                date: new Date().toLocaleDateString()
+            }
 
-            await updateUserNote(isUserID, note, noteIdNum)
+            await updateUserNote(isUserID, newNote, noteIdNum)
 
             navigate("/myNotes");
         }, 2500)

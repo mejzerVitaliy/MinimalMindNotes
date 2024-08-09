@@ -2,10 +2,6 @@ import React, { useState, ReactNode, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { authContext } from './context/CreateContext';
 
-
-
-
-
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isAuth, setIsAuth] = useState(false);
     const [isUserID, setIsUserID] = useState<string | null>();

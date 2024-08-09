@@ -26,24 +26,19 @@ const TechnoLi: React.FC<TechnoLiPropsTypes> = ({
     technoLip3
 }) => {
     return (
-        <li className=''>
+        <li className='m-4'>
             <h3 data-aos="fade-right" data-aos-duration="1000">{nameOfTechno}:</h3>
-            <ul data-aos="zoom-out-up" className=''>
-                <li><a target='_blank' href={technoLink1}><b>{technoLi1}:</b></a> {technoLip1}</li>
+            <ul data-aos="zoom-out-up" className='m-[8px-24px]'>
+                <li><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink1}><b>{technoLi1}:</b></a> {technoLip1}</li>
                 {technoLi2 && 
-                    <li><a target='_blank' href={technoLink2}><b>{technoLi2}:</b></a> {technoLip2}</li>
+                    <li><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink2}><b>{technoLi2}:</b></a> {technoLip2}</li>
                 }
                 {technoLi3 &&
-                    <li><a target='_blank' href={technoLink3}><b>{technoLi3}:</b></a> {technoLip3}</li>
+                    <li><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink3}><b>{technoLi3}:</b></a> {technoLip3}</li>
                 }
                 
             </ul>
         </li>
     )
 }
-
 export default TechnoLi
-
-
-""
-""

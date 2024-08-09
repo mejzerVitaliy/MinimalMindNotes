@@ -72,3 +72,19 @@ export const updateUserNote = async (
     }
 };
 
+
+export const likeNoteByID = async (userID:string | null | undefined, noteID: number) => {
+    try {
+        const user = await getUserByID(userID)
+
+        const noteIndex = user.notes.findIndex((note: any) => note.id === noteID)
+
+        user.notes[noteIndex] = { ...user.notes[noteIndex], liked: !user.notes[noteIndex].liked }
+        await updateUserData(userID, user);
+        console.log(`Note with ID ${noteID} successfully updated`);
+    } catch (error) {
+        console.error('Error updating note:', error);
+        throw error;
+    }
+}
+
