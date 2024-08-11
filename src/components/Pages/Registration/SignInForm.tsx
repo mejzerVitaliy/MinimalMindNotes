@@ -1,11 +1,11 @@
 import Cookies from "js-cookie";
 import React, { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { createUser } from "../../../API/Api";
+import { Validate } from "react-hook-form";
+import { checkLogins, createUser } from "../../../API/Api";
 import { authContext } from "../../context/CreateContext";
 import FormButton from "../../UI/Button/FormButton";
 import SignInInput from "../../UI/Inputs/SignInInput";
-import cl from "./SigninForm.module.scss";
 
 interface FormInputs {
     login: string;
@@ -46,6 +46,18 @@ const SignInForm: React.FC = () => {
         return value === password1 || "passwords don't match";
     };
 
+    const loginValidation: Validate<string, FormInputs> = async (value: string) => {
+        try {
+            const existingLogins = await checkLogins(value);
+            if (existingLogins.length > 0) {
+                return "Login already exists";
+            }
+            return true;
+        } catch (error) {
+            console.error("Error checking logins:", error);
+        }
+    };
+
     const onSubmitSignIn: SubmitHandler<FormInputs> = async (data) => {
         const userID = Date.now().toString();
         const userData = {
@@ -73,6 +85,7 @@ const SignInForm: React.FC = () => {
                     placeholder="enter login"
                     register={register("login", {
                         required: "login is required",
+                        validate: loginValidation
                     })}
                 />
 

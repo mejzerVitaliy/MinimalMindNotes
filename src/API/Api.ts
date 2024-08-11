@@ -6,10 +6,23 @@ const api = axios.create({
 
 export const createUser = (userData: {}) => api.post('/users', userData)
 
-export const chekAuth = async (login:string, password:string) => {
+export const checkAuth = async (login:string, password:string) => {
     const response = await api.get('/users', { params: { login, password } })
     const targetUser = response.data
-    console.log(targetUser);
     return targetUser
+}
+
+export const checkLogins = async (login:string) => {
+    try {
+        const response = await api.get('/users', { params: { login } })
+        const targetUserLogins = response.data
+        if (!targetUserLogins) {
+            return []
+        } else return targetUserLogins
+        
+    } catch (error) {
+        console.error("Error checking logins:", error);
+    }
+    
 }
 

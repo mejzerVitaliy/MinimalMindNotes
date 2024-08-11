@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import React, { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { chekAuth } from "../../../API/Api";
+import { checkAuth } from "../../../API/Api";
 import { authContext } from "../../context/CreateContext";
 import FormButton from "../../UI/Button/FormButton";
 import SignInInput from "../../UI/Inputs/SignInInput";
@@ -35,7 +35,7 @@ const LoginForm: React.FC = () => {
 
     const onSubmitLogIn: SubmitHandler<FormInputs> = async (data) => {
         try {
-            const users = await chekAuth(data.login, data.password);
+            const users = await checkAuth(data.login, data.password);
             if (users.length > 0) {
                 setIsAuth(true);
                 setIsUserID(users[0].id)
