@@ -5,7 +5,6 @@ import { deleteNoteByID, getAllNotesByID } from '../../../API/NotesFetching'
 import { authContext } from '../../context/CreateContext'
 import FormButton from '../../UI/Button/FormButton'
 import Navbar from '../../UI/Navbar/Navbar'
-import cl from './GeneralPage.module.scss'
 import Notes from './Notes/Notes'
 import { likeNoteByID } from '../../../API/notesServise'
 
@@ -83,7 +82,7 @@ const GeneralPage: React.FC = () => {
             return notes.sort((a, b) => {
                 const dateA = new Date(a.date.split('.').reverse().join('-'));
                 const dateB = new Date(b.date.split('.').reverse().join('-'));
-                return dateA.getTime() - dateB.getTime()
+                return  dateB.getTime() - dateA.getTime() 
             });
         } else if (sortBy === 'Liked') {
             return notes.filter(note => note.liked === true) || notes
@@ -118,7 +117,7 @@ const GeneralPage: React.FC = () => {
         console.log(notesArray);
         
         
-    }, [isUserID, notesArray.length])
+    }, [isUserID, notesArray.length, sortBy])
     
     useEffect(() => {
         setSearchQuery(localStorage.getItem('searchQuery') || '')
@@ -137,10 +136,9 @@ const GeneralPage: React.FC = () => {
     return (
         
         <main>
-        {}
             <Navbar title='MyNotes' />
 
-            <section className={cl.notes}>
+            <section>
                 <Notes
                     likeNote={likeNote}
                     searchValue={searchQuery}
@@ -152,14 +150,16 @@ const GeneralPage: React.FC = () => {
             </section>
         
             <FormButton
-                className="fixed right-[40px] bottom-[40px] w-[50px] h-[50px] rounded-full border-none transition-transform duration-[0.5s] ease-in-out text-center cursor-pointer flex justify-center items-center hover:w-[150px] hover:p-[10px_20px] hover:rounded-[20px]"
+                className="w-[50px] h-[50px] rounded-full border-none fixed right-[40px] bottom-[40px] transition-[width,height,padding,border-radius] duration-[0.5s] ease-in-out bg-[#888] text-center cursor-pointer flex justify-center items-center hover:w-[150px] hover:py-[10px] hover:px-[20px] hover:rounded-[20px] group "
                 onClick={addNote}
             >
-                <span className="text-[30px] transition-transform duration-[1s] ease-in-out opacity-100">+</span>
-                <span className="opacity-0 whitespace-nowrap transition-opacity duration-[1s] ease-in-out ml-[4px] hidden hover:inline">
+                <span className="text-[30px] m-0 transition-transform duration-[1s] ease-in-out group-hover:rotate-180 group-hover:text-left">+</span>
+                <span className=" none whitespace-nowrap transition-opacity duration-[1s] ease-in-out ml-[4px] hidden group-hover:inline">
                     Add Note
                 </span>
+
             </FormButton>
+            
 
             <FormButton
                 className="fixed top-[140px] right-[40px] p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125"

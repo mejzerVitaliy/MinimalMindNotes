@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useBackTo from '../../../hooks/useBackTo'
 import Navbar from '../../UI/Navbar/Navbar'
 import Technologies from './Technologies'

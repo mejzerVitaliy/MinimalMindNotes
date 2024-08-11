@@ -64,9 +64,9 @@ const SignInForm: React.FC = () => {
         }
     };
     return (
-        <div className={cl.center}>
-            <form onSubmit={handleSubmit(onSubmitSignIn)} className={cl.form}>
-                <h1 className={cl.title}>Registration</h1>
+        <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('src/assets/backgroundImg.png')]">
+            <form onSubmit={handleSubmit(onSubmitSignIn)} className="flex flex-col justify-center items-center border-2 border-solid border-gray-300 backdrop-blur-lg shadow-2xl shadow-black p-5 rounded-[20px]">
+                <h1 className="text-[52px] leading-none mt-2 mb-10 text-white">Registration</h1>
 
                 <SignInInput
                     type="text"
@@ -76,7 +76,7 @@ const SignInForm: React.FC = () => {
                     })}
                 />
 
-                <div className={cl.password}>
+                <div className="relative flex items-center w-[245px]">
                     <SignInInput
                         type={showPassword ? "text" : "password"}
                         placeholder="enter password"
@@ -89,12 +89,12 @@ const SignInForm: React.FC = () => {
                             },
                         })}
                     />
-                    <button type="button" onClick={passwordVisibility} className={cl.visibility} >
+                    <button type="button" onClick={passwordVisibility} className="absolute right-2 p-0 bg-transparent border-none cursor-pointer outline-none transition duration-200 ease-in-out hover:scale-110" >
                         {showPassword ? "🙈" : "🙉"}
                     </button>
                 </div>
 
-                <div className={cl.password}>
+                <div className="relative flex items-center w-[245px] mb-1">
                     <SignInInput
                         type={showPassword2 ? "text" : "password"}
                         placeholder="repeat password"
@@ -104,18 +104,12 @@ const SignInForm: React.FC = () => {
                         })}
                     />
 
-                    <button type="button" onClick={passwordVisibility2} className={cl.visibility} >
+                    <button type="button" onClick={passwordVisibility2} className="absolute right-2 p-0 bg-transparent border-none cursor-pointer outline-none transition duration-200 ease-in-out hover:scale-110">
                         {showPassword2 ? "🙈" : "🙉"}
                     </button>
                 </div>
 
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-around",
-                        margin: "8px",
-                    }}
-                    >
+                <div className="flex justify-around m-2">
                     <SignInInput
                         type="checkbox"
                         register={register("checkbox", {
@@ -123,23 +117,23 @@ const SignInForm: React.FC = () => {
                         })}
                         className="checkbox"
                     />
-                    <p className={cl.par}>I'm agree to work with my personal data</p>
+                    <p className='text-[16px] text-white mx-1'>I'm agree to work with my personal data</p>
                 </div>
 
-                <div className={cl.errors}>
+                <div className="border-2 border-solid border-gray-900 text-red-400 rounded-lg w-[280px] my-2 text-center text-[16px]">
                     {errors.login && <p>{errors.login.message}</p>}
                     {errors.password && <p>{errors.password.message}</p>}
                     {errors.password2 && <p>{errors.password2.message}</p>}
                     {errors.checkbox && <p>{errors.checkbox.message}</p>}
                 </div>
 
-                <a href="/logIn" className={cl.linkTo}>
+                <a href="/logIn" className="text-white text-[18px] transition duration-300 ease-in-out hover:scale-110 my-4">
                     Already have an account? Log in
                 </a>
 
                 <FormButton
                     disabled={!isValid || isSubmitting}
-                    className={!isValid || isSubmitting ? cl.disabledBtn : cl.button}
+                    className=" bg-black text-white cursor-pointer hover:bg-white hover:text-black hover:border-black hover:scale-105  py-1 my-3 mx-0 w-[300px] border-2 border-solid border-gray-300 rounded-full transition duration-200 ease-in-out disabled:bg-gray-600 disabled:text-slate-400 disabled:cursor-auto disabled:border-none disabled:transform-none "
                 >
                     Sign In
                 </FormButton>

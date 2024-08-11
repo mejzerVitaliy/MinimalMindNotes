@@ -24,6 +24,7 @@ const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, se
     const navigate = useNavigate()
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [noteIdToDelete, setNoteIdToDelete] = useState<number>(0);
+    const currentTheme = localStorage.getItem('theme')
 
     const modalOpening = (id: number) => {
         setIsModalOpen(true)
@@ -68,7 +69,7 @@ const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, se
                             onClick={() => toThisNote(note.id)}
                         >
                             <h1>{note.title}</h1>
-                            <p className=' absolute bottom-4 right-4 text-gray-400 '>date of created: <i>{note.date}</i></p>
+                            <p className=' absolute bottom-4 right-4 text-gray-400 '>latest changes: <i>{note.date}</i></p>
                             <FormButton
                                 className='bg-transparent p0 absolute top-2 right-12 border-none transition-all cursor-pointer hover:scale-125 '
                                 onClick={(e) => {
@@ -95,7 +96,7 @@ const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, se
                                     e.stopPropagation();
                                     modalOpening(note.id);
                                 }}
-                                className="p-0 h-[40px] w-[40px] rounded-full border-none absolute top-2 right-2 transition-transform cursor-pointer hover:scale-125 hover:bg-red-800"
+                                className= {currentTheme === 'dark' ? 'p-0 h-[40px] w-[40px] rounded-full border-none absolute top-2 right-2 transition-transform cursor-pointer hover:scale-125 hover:bg-red-800' : 'p-0 h-[40px] w-[40px] rounded-full border-none absolute top-2 right-2 transition-transform cursor-pointer hover:scale-125 hover:bg-red-800 bg-slate-400' } 
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +110,7 @@ const Notes: React.FC<NotesPropsArray> = ({ notesArray, deleteNote, onChange, se
                             
                             </FormButton>
                         </li>
-                    ))}
+                    )).reverse()}
                 </ul>
             )}
 

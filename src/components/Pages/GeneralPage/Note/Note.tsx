@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Navbar from '../../../UI/Navbar/Navbar'
 import FormButton from '../../../UI/Button/FormButton'
-import cl from './Note.module.scss'
 import { authContext } from '../../../context/CreateContext'
 import Cookies from 'js-cookie'
 import { getNoteByID } from '../../../../API/NotesFetching'
@@ -19,6 +18,7 @@ const Note: React.FC = () => {
     const [note, setNote] = useState({ title: noteTitle, body: noteBody, id: noteIdNum, liked: noteLiked })
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [is2ModalOpen, setIs2ModalOpen] = useState<boolean>(false)
+    const currentTheme = localStorage.getItem('theme')
 
     const useAuthCtx = () => {
         const context = useContext(authContext);
@@ -91,7 +91,7 @@ const Note: React.FC = () => {
                     ? back
                     : open2Modal  
                 }
-                className={cl.back}
+                className="fixed top-[140px] left-[40px] p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125"
             >
                 <svg
                     width="44"
@@ -102,15 +102,15 @@ const Note: React.FC = () => {
                 >
                 <path
                     d="M7.33337 22L6.62627 21.2929L5.91916 22L6.62627 22.7071L7.33337 22ZM34.8334 23C35.3857 23 35.8334 22.5523 35.8334 22C35.8334 21.4477 35.3857 21 34.8334 21V23ZM17.6263 10.2929L6.62627 21.2929L8.04048 22.7071L19.0405 11.7071L17.6263 10.2929ZM6.62627 22.7071L17.6263 33.7071L19.0405 32.2929L8.04048 21.2929L6.62627 22.7071ZM7.33337 23H34.8334V21H7.33337V23Z"
-                    fill="#DDDDDD"
+                    fill={ currentTheme === 'dark' ? "#DDDDDD" : '#000'}
                 />
                 </svg>
             </FormButton>
 
-            <main className={cl.note}>
+            <main className="note flex flex-col justify-center items-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-[80px]">
                 <textarea
                     maxLength={40}
-                    className={cl.titleOfNote}
+                    className="titleOfNote w-[700px] h-[70px] bg-[#525252] rounded-[12px] border-[2px] border-[#888] font-inter font-bold text-[30px] text-[#fdfdfd] mb-[12px] p-[16px] break-words resize-none placeholder:text-center"
                     placeholder="title of note"
                     defaultValue={noteTitle || ''}
                     onChange={(e) => {
@@ -122,7 +122,7 @@ const Note: React.FC = () => {
                 ></textarea>
 
                 <textarea
-                    className={cl.descriptionOfNote}
+                    className="descriptionOfNote w-[700px] h-[400px] bg-[#525252] rounded-[12px] border-[2px] border-[#888] font-inter font-normal text-[24px] text-[#fdfdfd] mb-[40px] p-[16px] break-words resize-none placeholder:text-center placeholder:font-bold scrollbar-thin scrollbar-thumb-[#888] scrollbar-thumb-rounded-full"
                     placeholder="description"
                     defaultValue={noteBody || ''}
                     onChange={(e) => setNote({ ...note, body: e.target.value })}
@@ -130,7 +130,7 @@ const Note: React.FC = () => {
             </main>
 
             <FormButton
-                className={cl.createNote}
+                className={currentTheme === 'dark' ? "fixed bottom-[80px] right-[80px] bg-[#525252] rounded-[20px] border-[2px] border-[#888] transition duration-[300ms] ease-in-out w-[150px] h-[40px] cursor-pointer hover:scale-125 disabled:transform-none disabled:border-none" : "fixed bottom-[80px] right-[80px] bg-[#525252] rounded-[20px] border-[2px] border-[#888] transition duration-[300ms] ease-in-out w-[150px] h-[40px] cursor-pointer text-white hover:scale-125 disabled:transform-none disabled:border-none disabled:text-gray-400"}
                 onClick={saveUdatedNotes}
                 disabled={(note.title !== noteTitle || note.body !== noteBody) &&
                     (note.body || note.title)
@@ -155,8 +155,19 @@ const Note: React.FC = () => {
                 onClose={cancelModal}
                 style={{height: "200px"}}
             >
-                <FormButton className={cl.modalBtns} onClick={cancelModal}>CANCEL</FormButton>
-                <FormButton className={cl.modalBtns} onClick={back}>BACK</FormButton>
+                <FormButton
+                    className="modalBtns bg-[#525252] rounded-[20px] border-none transition duration-[300ms] ease-in-out w-[100px] h-[40px] border-[2px] border-[#2d2d2d] cursor-pointer hover:scale-125"
+                    onClick={cancelModal}
+                >
+                    CANCEL
+                </FormButton>
+                
+                <FormButton
+                    className="modalBtns bg-[#525252] rounded-[20px] border-none transition duration-[300ms] ease-in-out w-[100px] h-[40px] border-[2px] border-[#2d2d2d] cursor-pointer hover:scale-125"
+                    onClick={back}
+                >
+                    BACK
+                </FormButton>
             </Modal>}
         </section>
     );
