@@ -41,12 +41,12 @@ const CreateNote: React.FC = () => {
     };
 
     return (
-        <section >
-            <Navbar title="Create new Note" />
+        <section className="flex justify-center items-center">
+            <Navbar title="Create" />
 
             <FormButton 
                 onClick={BackToMenu} 
-                className="fixed top-[140px] left-[40px] p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125"
+                className="fixed z-[1000] top-14 md:top-16 lg:top-20 xl:top-24  left-3 xl:left-7 p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125"
             >
                 <svg
                     width="44"
@@ -63,15 +63,15 @@ const CreateNote: React.FC = () => {
             </FormButton>
 
             <TextAreas
-                className1="flex flex-col justify-center items-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-[80px]"
-                className2="w-[700px] h-[70px] bg-[#525252] rounded-[12px] border-2 border-[#888] font-inter font-bold text-[30px] text-[#fdfdfd] mb-[12px] p-[16px] break-words whitespace-pre-wrap resize-none placeholder:text-center"
-                className3="w-[700px] h-[400px] bg-[#525252] rounded-[12px] border-2 border-[#888] font-inter font-normal text-[24px] text-[#fdfdfd] mb-[40px] p-[16px] break-words whitespace-pre-wrap resize-none scrollbar-width-[12px] scrollbar-thumb-[#888] scrollbar-rounded-[50px] placeholder:text-center placeholder:font-bold"
+                className1="flex flex-col justify-center items-center transform mt-[90px] sm:mt-[110px] lg:mt-[130px] w-4/5 sm:w-3/5 xl:w-3/6"
+                className2="w-full h-[40px] xl:h-[60px] bg-[#525252] text-center rounded-[12px] border-2 border-[#888] font-inter font-bold text-[22px] sm:text-[24px] lg:text-[28px] xl:text-[32px] text-[#fdfdfd] mb-[20px] p-[16px] break-words whitespace-pre-wrap resize-none placeholder:text-center placeholder:text-[24px] xl:placeholder:text-[30px]"
+                className3="w-full h-[300px] xl:h-[400px] bg-[#525252] rounded-[12px] border-2 border-[#888] font-inter font-normal text-[16px] sm:text-[18px] lg:text-[24px] xl:text-[28px] text-[#fdfdfd] p-[16px] break-words whitespace-pre-wrap resize-none scrollbar-width-[12px] scrollbar-thumb-[#888] scrollbar-rounded-[50px] placeholder:text-center placeholder:font-bold placeholder:text-[24px] xl:placeholder:text-[30px]"
                 onChange2={(e) => setNote({ ...note, title: e.target.value })}
                 onChange3={(e) => setNote({ ...note, body: e.target.value })}
             />
 
             <FormButton
-                className= { currentTheme === 'dark' ? "fixed bottom-[80px] right-[80px] w-[100px] h-[40px] bg-[#525252] rounded-[20px] border-none cursor-pointer transition-transform duration-300 hover:scale-125 disabled:scale-100" : "fixed bottom-[80px] right-[80px] w-[100px] h-[40px] bg-[#525252] rounded-[20px] border-none cursor-pointer transition-transform duration-300 hover:scale-125 disabled:scale-100 disabled:text-gray-300 text-white"}
+                className= { currentTheme === 'dark' ? "fixed bottom-[20px] w-[90%] sm:w-[496px] lg:w-16 xl:w-24 lg:right-6 xl:right-14 xl:bottom-9 h-[40px]  bg-[#525252] rounded-[20px] border-solid border-2 border-[#888] disabled:border-none cursor-pointer transition-transform duration-300 hover:scale-125 disabled:scale-100" : "fixed bottom-[20px] w-[90%] sm:w-[496px] lg:w-16 xl:w-24 lg:right-6 xl:right-14 xl:bottom-9 h-[40px] bg-[#525252] rounded-[20px] border-solid border-2 border-[#888] disabled:border-none cursor-pointer transition-transform duration-300 hover:scale-125 disabled:scale-100 disabled:text-gray-300 text-white"}
                 onClick={addNewNote}
                 disabled={!note.title}
             >

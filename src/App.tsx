@@ -2,7 +2,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useContext, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
-import "./App.scss";
 import AppRouter from "./components/AppRouter/AppRouter";
 import { authContext } from "./components/context/CreateContext";
 
@@ -17,7 +16,6 @@ const App: React.FC = () => {
         return context;
     };
     
-    
     const { setIsAuth } = useAuthCtx();
 
     useEffect(() => {
@@ -28,7 +26,7 @@ const App: React.FC = () => {
 
     return (
         <BrowserRouter>
-        <AppRouter />
+            <AppRouter />
         </BrowserRouter>
     );
 };

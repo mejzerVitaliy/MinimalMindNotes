@@ -2,28 +2,33 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; 
   line-height: 1.5; 
   font-weight: 400; 
-
-  // background-image: url('src/assets/backgroundWhiteTheme.png');
-
   font-synthesis: none; 
   text-rendering: optimizeLegibility; 
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; 
-
 }
+
 *, body {
   margin: 0; 
   padding: 0; 
 }
 
 body {
-  background-image: url('src/assets/backgroundWhiteTheme.png');
+  background-image: url('src/assets/backgroundWhite.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  height: 100%;
   color: aliceblue;
 }
 
 .dark {
   color-scheme: dark; 
-  background-image: url('src/assets/backgroundImg.png');
+  background-image: url('src/assets/backgroundBlack.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  height: 100%;
   color: aliceblue;
 }
 
@@ -51,6 +56,25 @@ body {
   to {
       font-size: 50px;
       opacity: 1;
+  }
+}
+
+@keyframes modalWindowLighting {
+  0% {
+      transform: scale(1);
+      background-color: #888888;
+      box-shadow: none;
+  }
+
+  50% {
+      transform: scale(1.05);
+      background-color: #910000;
+      box-shadow: 0px 0px 40px 6px #ff000090;
+  }
+
+  100% {
+      transform: scale(1);
+      background-color: #888888;
   }
 }
 

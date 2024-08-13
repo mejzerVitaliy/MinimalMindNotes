@@ -4,7 +4,7 @@ import TechnoLi from './TechnoLi'
 const Technologies: React.FC = () => {
     return (
         <article  data-aos="zoom-in-down">
-            <h2 className='text-center'>Technologies Used:</h2>
+            <h2 className='text-center text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px]'>Technologies Used:</h2>
             <ul>
                 <TechnoLi
                     nameOfTechno='Languages'
@@ -45,7 +45,7 @@ const Technologies: React.FC = () => {
                 <TechnoLi 
                     nameOfTechno='API Requests'
                     technoLink1='https://axios-http.com/'
-                    technoLi1='AOS (Animate on Scroll)'
+                    technoLi1='Axios'
                     technoLip1=' For handling API requests, we rely on Axios, which simplifies the process of communicating with the server.'
                 />
                 <TechnoLi

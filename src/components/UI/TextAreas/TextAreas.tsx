@@ -6,9 +6,11 @@ interface TextAreaPropsTypes{
     className3: string
     onChange2: React.ChangeEventHandler<HTMLTextAreaElement>
     onChange3: React.ChangeEventHandler<HTMLTextAreaElement>
+    defaultValue2?: string
+    defaultValue3?:string
 }
 
-const TextAreas: React.FC<TextAreaPropsTypes> = ({className1, className2, className3, onChange2, onChange3 }) => {
+const TextAreas: React.FC<TextAreaPropsTypes> = ({className1, className2, className3, onChange2, onChange3, defaultValue2, defaultValue3 }) => {
     return (
         <main className={className1}>
             <textarea
@@ -16,12 +18,14 @@ const TextAreas: React.FC<TextAreaPropsTypes> = ({className1, className2, classN
                 className={className2}
                 placeholder="title of note"
                 onChange={onChange2}
+                defaultValue={defaultValue2}
             ></textarea>
 
             <textarea
                 className={className3}
                 placeholder="description"
                 onChange={onChange3}
+                defaultValue={defaultValue3}
             ></textarea>
         </main>
     )

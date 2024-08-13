@@ -26,15 +26,15 @@ const TechnoLi: React.FC<TechnoLiPropsTypes> = ({
     technoLip3
 }) => {
     return (
-        <li className='m-4'>
-            <h3 data-aos="fade-right" data-aos-duration="1000">{nameOfTechno}:</h3>
+        <li className='my-6 mx-4'>
+            <h3 data-aos="fade-right" data-aos-duration="1000" className='text-[14px] sm:text-[18px] lg:text-[22px]'>{nameOfTechno}:</h3>
             <ul data-aos="zoom-out-up" className='m-[8px-24px]'>
-                <li><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink1}><b>{technoLi1}:</b></a> {technoLip1}</li>
+                <li className='text-[12px] sm:text-[16px] lg:text-[20px]'><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink1}><b className='text-[14px] sm:text-[18px] lg:text-[22px]'>{technoLi1}:</b></a> {technoLip1}</li>
                 {technoLi2 && 
-                    <li><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink2}><b>{technoLi2}:</b></a> {technoLip2}</li>
+                    <li className='text-[12px] sm:text-[16px] lg:text-[20px]'><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink2}><b className='text-[14px] sm:text-[18px] lg:text-[22px]'>{technoLi2}:</b></a> {technoLip2}</li>
                 }
                 {technoLi3 &&
-                    <li><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink3}><b>{technoLi3}:</b></a> {technoLip3}</li>
+                    <li className='text-[12px] sm:text-[16px] lg:text-[20px]'><a className='text-[#5f72ff] transition-colors hover:text-violet-600' target='_blank' href={technoLink3}><b className='text-[14px] sm:text-[18px] lg:text-[22px]'>{technoLi3}:</b></a> {technoLip3}</li>
                 }
                 
             </ul>

@@ -6,10 +6,18 @@ const api = axios.create({
 
 export const createUser = (userData: {}) => api.post('/users', userData)
 
-export const checkAuth = async (login:string, password:string) => {
-    const response = await api.get('/users', { params: { login, password } })
-    const targetUser = response.data
-    return targetUser
+export const checkAuth = async (login: string, password: string) => {
+    const response = await api.get('/users', { params: { login } });
+    const users = response.data;
+    console.log(users);
+    
+
+    // Проверка пользователя и пароля
+    const targetUser = users.find((user: { login: string, password: string }) => user.password === password);
+    console.log(targetUser);
+    
+    if (targetUser) return [targetUser]
+    else return [];
 }
 
 export const checkLogins = async (login:string) => {

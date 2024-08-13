@@ -76,9 +76,9 @@ const SignInForm: React.FC = () => {
         }
     };
     return (
-        <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('src/assets/backgroundImg.png')]">
-            <form onSubmit={handleSubmit(onSubmitSignIn)} className="flex flex-col justify-center items-center border-2 border-solid border-gray-300 backdrop-blur-lg shadow-2xl shadow-black p-5 rounded-[20px]">
-                <h1 className="text-[52px] leading-none mt-2 mb-10 text-white">Registration</h1>
+        <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('src/assets/backgroundBlack.png')]">
+            <form onSubmit={handleSubmit(onSubmitSignIn)} className="flex flex-col justify-center items-center border-2 border-solid border-gray-300 backdrop-blur-lg shadow-2xl shadow-black p-2 md:py-4 md:p-3 w-3/5 sm:w-2/6 md:w-[240px] xl:w-[270px] rounded-[20px]">
+                <h1 className="text-[30px] sm:text-[36px] lg:text[40px] xl:text-[44px] leading-none mt-1 mb-1 sm:mb-2 lg:mb-4 xl:mb-5 text-white">Registration</h1>
 
                 <SignInInput
                     type="text"
@@ -89,7 +89,7 @@ const SignInForm: React.FC = () => {
                     })}
                 />
 
-                <div className="relative flex items-center w-[245px]">
+                <div className="relative flex items-center w-full">
                     <SignInInput
                         type={showPassword ? "text" : "password"}
                         placeholder="enter password"
@@ -102,12 +102,12 @@ const SignInForm: React.FC = () => {
                             },
                         })}
                     />
-                    <button type="button" onClick={passwordVisibility} className="absolute right-2 p-0 bg-transparent border-none cursor-pointer outline-none transition duration-200 ease-in-out hover:scale-110" >
+                    <button type="button" onClick={passwordVisibility} className="absolute right-1 text-[18px] p-0 bg-transparent border-none cursor-pointer outline-none transition duration-200 ease-in-out hover:scale-110" >
                         {showPassword ? "🙈" : "🙉"}
                     </button>
                 </div>
 
-                <div className="relative flex items-center w-[245px] mb-1">
+                <div className="relative flex items-center w-full">
                     <SignInInput
                         type={showPassword2 ? "text" : "password"}
                         placeholder="repeat password"
@@ -117,36 +117,35 @@ const SignInForm: React.FC = () => {
                         })}
                     />
 
-                    <button type="button" onClick={passwordVisibility2} className="absolute right-2 p-0 bg-transparent border-none cursor-pointer outline-none transition duration-200 ease-in-out hover:scale-110">
+                    <button type="button" onClick={passwordVisibility2} className="absolute right-1 text-[18px] p-0 bg-transparent border-none cursor-pointer outline-none transition duration-200 ease-in-out hover:scale-110">
                         {showPassword2 ? "🙈" : "🙉"}
                     </button>
                 </div>
 
-                <div className="flex justify-around m-2">
+                <div className="flex justify-beetwen items-center sm:mt-2">
                     <SignInInput
                         type="checkbox"
                         register={register("checkbox", {
                             required: "checkbox is required"
                         })}
-                        className="checkbox"
                     />
-                    <p className='text-[16px] text-white mx-1'>I'm agree to work with my personal data</p>
+                    <p className='text-[11px] md:text-[12px] xl:text-[16px] text-white text-center'>I'm agree to work with my personal data</p>
                 </div>
 
-                <div className="border-2 border-solid border-gray-900 text-red-400 rounded-lg w-[280px] my-2 text-center text-[16px]">
+                <div className="border-1 border-solid border-gray-900 text-red-400 rounded-lg w-full max-h-9 overflow-y-scroll my-1 text-center text-[10px] md:text-[14px] xl:text-[16px]">
                     {errors.login && <p>{errors.login.message}</p>}
                     {errors.password && <p>{errors.password.message}</p>}
                     {errors.password2 && <p>{errors.password2.message}</p>}
                     {errors.checkbox && <p>{errors.checkbox.message}</p>}
                 </div>
 
-                <a href="/logIn" className="text-white text-[18px] transition duration-300 ease-in-out hover:scale-110 my-4">
+                <a href="/logIn" className="text-white text-[12px] md:text-[16px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">
                     Already have an account? Log in
                 </a>
 
                 <FormButton
                     disabled={!isValid || isSubmitting}
-                    className=" bg-black text-white cursor-pointer hover:bg-white hover:text-black hover:border-black hover:scale-105  py-1 my-3 mx-0 w-[300px] border-2 border-solid border-gray-300 rounded-full transition duration-200 ease-in-out disabled:bg-gray-600 disabled:text-slate-400 disabled:cursor-auto disabled:border-none disabled:transform-none "
+                    className="  bg-black text-white cursor-pointer hover:bg-white hover:text-black hover:border-black hover:scale-105  py-1 my-3 mx-0 w-full border-2 border-solid border-gray-300 rounded-full transition duration-200 ease-in-out disabled:bg-gray-600 disabled:text-slate-400 disabled:cursor-auto disabled:border-none disabled:transform-none "
                 >
                     Sign In
                 </FormButton>
