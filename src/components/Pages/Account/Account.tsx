@@ -50,21 +50,21 @@ const Account: React.FC = () => {
     const switchTheme = () => {
         const newTheme = !theme
         setTheme(newTheme)
-        localStorage.setItem('theme', newTheme ? 'dark' : 'white')
-        document.body.classList.toggle('dark', newTheme)
+        localStorage.setItem('theme', newTheme ? 'white' : 'dark')
+        document.body.classList.toggle('white', newTheme)
     }
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme')    
-        const isDarkTheme = savedTheme === 'dark'
-        setTheme(isDarkTheme)
-        document.body.classList.toggle('dark', isDarkTheme)
+        const isWhiteTheme = savedTheme === 'white'
+        setTheme(isWhiteTheme)
+        document.body.classList.toggle('white', isWhiteTheme)
     }, [])
 
     return (
         <section className="h-full w-full flex justify-center items-center">
             <main className="h-full w-full flex justify-center items-center">
                 <Navbar title="Account" />
-                <section className={ currenTheme === 'dark' ? "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px]  items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-28" : "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px] items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-28 text-black"}>
+                <section className={ currenTheme === 'white' ? "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px] items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-28 text-black" : "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px]  items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-28" }>
                     <article className="w-36 h-36 xl:w-52 xl:h-52">
                         <svg viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M36.5375 69.375C54.6731 69.375 69.375 54.8802 69.375 37C69.375 19.1198 54.6731 4.625 36.5375 4.625C18.4018 4.625 3.69995 19.1198 3.69995 37C3.69995 54.8802 18.4018 69.375 36.5375 69.375Z" fill="#515151" />
@@ -81,7 +81,7 @@ const Account: React.FC = () => {
                 </section>
 
                 <FormButton className="fixed bottom-5 xl:bottom-16 xl:right-10  w-[90%] lg:w-4/5 xl:w-32 h-[40px] rounded-[30px] border-2 border-gray-500 bg-[#6f0000] transition-transform duration-400 cursor-pointer lg:hover:scale-125 hover:bg-[#8e0000]" onClick={modalSwitcher}>
-                    <h3 className={ currenTheme === "dark" ? "m-0 " : 'm-0 text-white'}>Log out</h3>
+                    <h3 className={ currenTheme === "white" ? "m-0  text-white" : 'm-0'}>Log out</h3>
                 </FormButton>
         
                 <FormButton className="fixed z-[1000] top-14 md:top-16 lg:top-20 left-3 xl:top-24 xl:left-7 p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125" onClick={BackToMenu}>
@@ -94,7 +94,7 @@ const Account: React.FC = () => {
                     >
                         <path
                             d="M7.33337 22L6.62627 21.2929L5.91916 22L6.62627 22.7071L7.33337 22ZM34.8334 23C35.3857 23 35.8334 22.5523 35.8334 22C35.8334 21.4477 35.3857 21 34.8334 21V23ZM17.6263 10.2929L6.62627 21.2929L8.04048 22.7071L19.0405 11.7071L17.6263 10.2929ZM6.62627 22.7071L17.6263 33.7071L19.0405 32.2929L8.04048 21.2929L6.62627 22.7071ZM7.33337 23H34.8334V21H7.33337V23Z"
-                            fill={ currenTheme === 'dark' ? "#DDDDDD" : '#000'}
+                            fill={ currenTheme === 'white' ? "#000" : '#DDDDDD'}
                     />
                     </svg>
                 </FormButton>
@@ -102,10 +102,10 @@ const Account: React.FC = () => {
                 
 
                 <FormButton
-                    className={ theme? "fixed top-16 right-5 lg:top-24 w-5 h-5 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125" : 'fixed top-16 right-3 lg:top-24 w-9 h-9 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125'}
+                    className={ !theme? "fixed top-16 right-5 lg:top-24 w-5 h-5 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125" : 'fixed top-16 right-3 lg:top-24 w-9 h-9 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125'}
                     onClick={switchTheme}
                 >
-                    {theme
+                    {!theme
                         ? <svg viewBox="0 0 34 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M30.5164 0.930043C32.4262 1.28859 33.3811 1.46787 33.5142 2.12895C33.6473 2.79003 32.7259 3.39742 30.8831 4.61219C24.1008 9.08324 19.625 16.7689 19.625 25.5C19.625 34.2311 24.1008 41.9168 30.8831 46.3878C32.7259 47.6026 33.6473 48.21 33.5142 48.8711C33.3811 49.5321 32.4262 49.7114 30.5164 50.07C29.0124 50.3523 27.461 50.5 25.875 50.5C12.0679 50.5 0.875 39.3071 0.875 25.5C0.875 11.6929 12.0679 0.5 25.875 0.5C27.461 0.5 29.0124 0.647681 30.5164 0.930043Z" fill="#888" />
                         </svg>

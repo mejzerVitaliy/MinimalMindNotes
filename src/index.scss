@@ -14,15 +14,6 @@
 }
 
 body {
-  background-image: url('src/assets/backgroundWhite.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat-y;
-  height: 100%;
-  color: aliceblue;
-}
-
-.dark {
   color-scheme: dark; 
   background-image: url('src/assets/backgroundBlack.png');
   background-size: cover;
@@ -32,20 +23,15 @@ body {
   color: aliceblue;
 }
 
-:root.dark {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; 
-  line-height: 1.5; 
-  font-weight: 400; 
-
-  // color-scheme: light dark; 
-  // background-image: url('src/assets/backgroundImg.png');
-
-  font-synthesis: none; 
-  text-rendering: optimizeLegibility; 
-  -webkit-font-smoothing: antialiased; 
-  -moz-osx-font-smoothing: grayscale; 
-
+.white {
+  background-image: url('src/assets/backgroundWhite.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  height: 100%;
+  color: aliceblue;
 }
+
 
 @keyframes titleAnim {
   from {
