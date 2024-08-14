@@ -6,6 +6,7 @@ import { authContext } from "../../context/CreateContext";
 import FormButton from "../../UI/Button/FormButton";
 import SignInInput from "../../UI/Inputs/SignInInput";
 import Modal from "../../UI/ModalWindow/Modal";
+import { useNavigate } from "react-router-dom";
 
 interface FormInputs {
     login: string;
@@ -22,6 +23,7 @@ const LoginForm: React.FC = () => {
     const { isAuth, setIsAuth, setIsUserID } = useAuthCtx();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const nav = useNavigate()
     
     const {
         register,
@@ -93,7 +95,7 @@ const LoginForm: React.FC = () => {
                     {errors.password && <p>{errors.password.message}</p>}
                 </div>
             
-                <a href="/signIn" className="text-white text-center text-[12px] md:text-[14px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">Don't have an account yet?   Sign Up!</a>
+                <p onClick={() => nav('signIn')} className="text-white text-center text-[12px] md:text-[14px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">Don't have an account yet?   Sign Up!</p>
 
                 <FormButton
                     disabled={!isValid || isSubmitting}

@@ -6,6 +6,7 @@ import { checkLogins, createUser } from "../../../API/Api";
 import { authContext } from "../../context/CreateContext";
 import FormButton from "../../UI/Button/FormButton";
 import SignInInput from "../../UI/Inputs/SignInInput";
+import { useNavigate } from "react-router-dom";
 
 interface FormInputs {
     login: string;
@@ -24,6 +25,7 @@ const SignInForm: React.FC = () => {
     const { isAuth, setIsAuth, setIsUserID } = useAuthCtx();
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
+    const nav = useNavigate()
 
     const {
         register,
@@ -139,9 +141,9 @@ const SignInForm: React.FC = () => {
                     {errors.checkbox && <p>{errors.checkbox.message}</p>}
                 </div>
 
-                <a href="/logIn" className="text-white text-[12px] md:text-[16px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">
+                <p onClick={() => nav('logIn')} className="text-white text-[12px] md:text-[16px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">
                     Already have an account? Log in
-                </a>
+                </p>
 
                 <FormButton
                     disabled={!isValid || isSubmitting}
