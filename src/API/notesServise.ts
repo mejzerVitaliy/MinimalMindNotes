@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'http://localhost:3001'
+const baseUrl = 'https://minimalmindnotes-1.onrender.com'
 
 
 export const getUserByID = async (userID: string| null | undefined) => {

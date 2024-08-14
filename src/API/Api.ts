@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL:'http://localhost:3001'
+    baseURL:'https://minimalmindnotes-1.onrender.com'
 })
 
 export const createUser = (userData: {}) => api.post('/users', userData)
@@ -30,7 +30,6 @@ export const checkLogins = async (login:string) => {
         
     } catch (error) {
         console.error("Error checking logins:", error);
-    }
-    
+    }   
 }
 
