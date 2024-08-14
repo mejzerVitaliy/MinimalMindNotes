@@ -141,7 +141,7 @@ const SignInForm: React.FC = () => {
                     {errors.checkbox && <p>{errors.checkbox.message}</p>}
                 </div>
 
-                <p onClick={() => nav('logIn')} className="text-white text-[12px] md:text-[16px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">
+                <p onClick={() => nav('/logIn')} className="text-white cursor-pointer text-[12px] md:text-[16px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">
                     Already have an account? Log in
                 </p>
 

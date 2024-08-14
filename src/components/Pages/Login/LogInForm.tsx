@@ -95,7 +95,7 @@ const LoginForm: React.FC = () => {
                     {errors.password && <p>{errors.password.message}</p>}
                 </div>
             
-                <p onClick={() => nav('signIn')} className="text-white text-center text-[12px] md:text-[14px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">Don't have an account yet?   Sign Up!</p>
+                <p onClick={() => nav('/signIn')} className="text-white cursor-pointer text-center text-[12px] md:text-[14px] xl:text-[18px] transition duration-300 ease-in-out hover:scale-110 my-2">Don't have an account yet?   Sign Up!</p>
 
                 <FormButton
                     disabled={!isValid || isSubmitting}
