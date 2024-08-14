@@ -22,9 +22,6 @@ export const updateUserData = async (userID: string| null | undefined, updatedUs
         throw error;
     }
 }
-
-
-
 export const addUserNote = async (userID: string | null | undefined, note: any) => {
     try {
         const user = await getUserByID(userID)
@@ -37,7 +34,6 @@ export const addUserNote = async (userID: string | null | undefined, note: any) 
         throw error;
     }
 }
-
 export const updateUserNote = async (
     userID: string | null | undefined,
     updatedNote: {
@@ -71,7 +67,6 @@ export const updateUserNote = async (
         throw error;
     }
 };
-
 
 export const likeNoteByID = async (userID:string | null | undefined, noteID: number) => {
     try {
