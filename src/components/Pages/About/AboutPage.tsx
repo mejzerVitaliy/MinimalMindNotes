@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
             </button>
 
             <section
-                className={currentTheme === 'dark' ? " flex flex-col items-center justify-center text-[16px] text-left mt-16 mb-8 w-4/5 sm:w-4/5 sm:mt-24 p-3 border-2 border-double border-[#525252] rounded-[30px] backdrop-blur-2xl " : " flex flex-col items-center justify-center text-left text-[16px] mt-16 mb-8 w-4/5 sm:w-4/5 sm:mt-24 p-3 border-2 border-double border-[#525252] rounded-[30px] backdrop-blur-2xl text-black" }   
+                className={currentTheme === 'dark' ? " flex flex-col items-center justify-center text-[16px] text-left mt-20 mb-8 w-4/5 sm:w-4/5 sm:mt-24 p-3 border-2 border-double border-[#525252] rounded-[30px] backdrop-blur-2xl " : " flex flex-col items-center justify-center text-left text-[16px] mt-20 mb-8 w-4/5 sm:w-4/5 sm:mt-24 p-3 border-2 border-double border-[#525252] rounded-[30px] backdrop-blur-2xl text-black" }   
             >
                 <h1 className="text-center text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[50px] xl:animate-[titleAnim_2s_ease-in] font-bold underline">
                     About MinimalMind

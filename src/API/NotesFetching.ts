@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAllNotesByID = async (isUserID: string | null | undefined) => {
     
-    const urlByID = `https://minimalmindnotes-1.onrender.com/users/${isUserID}`;
+    const urlByID = `https://minimalmindnotes-1.onrender.com/api/users/${isUserID}`;
 
     try {
         const response = await axios.get(urlByID);
@@ -15,7 +15,7 @@ export const getAllNotesByID = async (isUserID: string | null | undefined) => {
 
 export const getNoteByID = async (isUserID: string | null | undefined, noteId: number) => {
     
-    const urlByID = `https://minimalmindnotes-1.onrender.com/users/${isUserID}`
+    const urlByID = `https://minimalmindnotes-1.onrender.com/api/users/${isUserID}`
     
     try {
         const response = await axios.get(urlByID)
@@ -29,7 +29,7 @@ export const getNoteByID = async (isUserID: string | null | undefined, noteId: n
 
 
 export const deleteNoteByID = async (isUserID: string | null | undefined, noteID: number) => {
-    const urlByID = `https://minimalmindnotes-1.onrender.com/users/${isUserID}`;
+    const urlByID = `https://minimalmindnotes-1.onrender.com/api/users/${isUserID}`;
 
     try {
         const response = await axios.get(urlByID);

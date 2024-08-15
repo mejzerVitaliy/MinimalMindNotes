@@ -102,7 +102,7 @@ const Account: React.FC = () => {
                 
 
                 <FormButton
-                    className={ !theme? "fixed top-[130px] right-5 lg:top-24 w-5 h-5 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125" : 'fixed top-[130px] right-3 lg:top-24 w-9 h-9 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125'}
+                    className={ !theme? "fixed top-20 right-5 lg:top-24 w-5 h-5 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125" : 'fixed top-20 right-3 lg:top-24 w-9 h-9 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125'}
                     onClick={switchTheme}
                 >
                     {!theme
