@@ -64,7 +64,7 @@ const Account: React.FC = () => {
         <section className="h-full w-full flex justify-center items-center">
             <main className="h-full w-full flex justify-center items-center">
                 <Navbar title="Account" />
-                <section className={ currenTheme === 'white' ? "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px] items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-28 text-black" : "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px]  items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-28" }>
+                <section className={ currenTheme === 'white' ? "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px] items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-40 text-black" : "p-5 sm:p-10 transform  flex flex-col md:flex-row xl:h-[280px]  items-center border-4 border-double border-gray-600 backdrop-blur-2xl rounded-[30px] w-[70%] mt-40" }>
                     <article className="w-36 h-36 xl:w-52 xl:h-52">
                         <svg viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M36.5375 69.375C54.6731 69.375 69.375 54.8802 69.375 37C69.375 19.1198 54.6731 4.625 36.5375 4.625C18.4018 4.625 3.69995 19.1198 3.69995 37C3.69995 54.8802 18.4018 69.375 36.5375 69.375Z" fill="#515151" />
@@ -84,7 +84,7 @@ const Account: React.FC = () => {
                     <h3 className={ currenTheme === "white" ? "m-0  text-white" : 'm-0'}>Log out</h3>
                 </FormButton>
         
-                <FormButton className="fixed z-[1000] top-14 md:top-16 lg:top-20 left-3 xl:top-24 xl:left-7 p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125" onClick={BackToMenu}>
+                <FormButton className="fixed z-[1000] top-20 md:top-16 lg:top-20 left-3 xl:top-24 xl:left-7 p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125" onClick={BackToMenu}>
                     <svg
                         width="44"
                         height="44"
@@ -102,7 +102,7 @@ const Account: React.FC = () => {
                 
 
                 <FormButton
-                    className={ !theme? "fixed top-16 right-5 lg:top-24 w-5 h-5 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125" : 'fixed top-16 right-3 lg:top-24 w-9 h-9 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125'}
+                    className={ !theme? "fixed top-[130px] right-5 lg:top-24 w-5 h-5 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125" : 'fixed top-[130px] right-3 lg:top-24 w-9 h-9 p-0 bg-transparent border-none transition-transform duration-300 cursor-pointer hover:scale-125'}
                     onClick={switchTheme}
                 >
                     {!theme

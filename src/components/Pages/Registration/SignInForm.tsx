@@ -134,7 +134,7 @@ const SignInForm: React.FC = () => {
                     <p className='text-[11px] md:text-[12px] xl:text-[16px] text-white text-center'>I'm agree to work with my personal data</p>
                 </div>
 
-                <div className="border-1 border-solid border-gray-900 text-red-400 rounded-lg w-full max-h-9 overflow-y-scroll my-1 text-center text-[10px] md:text-[14px] xl:text-[16px]">
+                <div className="border-[0.5px] border-solid border-gray-300 text-red-400 rounded-lg w-full max-h-9 overflow-y-scroll my-1 text-center text-[10px] md:text-[14px] xl:text-[16px]">
                     {errors.login && <p>{errors.login.message}</p>}
                     {errors.password && <p>{errors.password.message}</p>}
                     {errors.password2 && <p>{errors.password2.message}</p>}

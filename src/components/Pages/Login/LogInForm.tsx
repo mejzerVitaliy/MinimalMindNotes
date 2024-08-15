@@ -41,8 +41,6 @@ const LoginForm: React.FC = () => {
         try {
             const users = await checkAuth(data.login, data.password);
             if (users.length > 0) {
-                console.log(users);
-                
                 setIsAuth(true);
                 setIsUserID(users[0].id)
                 localStorage.setItem("isAuth", `${isAuth}`);
@@ -90,7 +88,7 @@ const LoginForm: React.FC = () => {
                     </button>
                 </div>
             
-                <div className="border-1 border-solid border-gray-900 text-red-400 rounded-lg w-full max-h-9 overflow-y-scroll my-1 text-center text-[10px] md:text-[14px] xl:text-[16px]">
+                <div className="border-[0.5px] border-solid border-gray-300 text-red-400 rounded-lg w-full max-h-9 overflow-y-scroll my-1 text-center text-[10px] md:text-[14px] xl:text-[16px]">
                     {errors.login && <p>{errors.login.message}</p>}
                     {errors.password && <p>{errors.password.message}</p>}
                 </div>

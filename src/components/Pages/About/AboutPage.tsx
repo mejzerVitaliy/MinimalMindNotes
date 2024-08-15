@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
 
             <button 
                 onClick={BackToMenu} 
-                className="fixed z-[1000] top-14 md:top-16 lg:top-20 left-3 p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125"
+                className="fixed z-[1000] top-20 md:top-16 lg:top-20 left-3 p-0 m-0 bg-transparent border-none cursor-pointer transition-transform duration-200 hover:scale-125"
             >
                 <svg
                     width="44"

@@ -35,10 +35,7 @@ const GeneralPage: React.FC = () => {
 
     const getNotesArray = async () => {
         const notes = await getAllNotesByID(isUserID)
-        
-        
         setNotesArray(notes)
-        console.log(notesArray);
         return notesArray
     }
 
@@ -61,9 +58,6 @@ const GeneralPage: React.FC = () => {
         const loggedUser = Cookies.get("userID")
         setIsUserID(loggedUser)
     }, [isUserID])
-
-
-    // ДОБАВИТЬ ПРОВЕРКУ НА НАЛИЧИЕ ТЕЛА И ТАЙТЛА
 
     const filterAndSearch = (sortBy: string, query: string , notes: NotesTypes[]) => {
         if (notes.length === 0) return null
@@ -106,9 +100,6 @@ const GeneralPage: React.FC = () => {
     useEffect(() => {
         getUserIDfromCookies()
         getNotesArray();
-        console.log(notesArray);
-        
-        
     }, [isUserID, notesArray.length, sortBy])
     
     useEffect(() => {

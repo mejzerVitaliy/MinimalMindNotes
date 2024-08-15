@@ -41,8 +41,6 @@ export const deleteNoteByID = async (isUserID: string | null | undefined, noteID
             ...user,
             notes: updatedNotes
         })
-
-        console.log(`Заметка с ID ${noteID} была успешно удалена`);
     } catch (error) {
         console.error("Notes undefined");
     }

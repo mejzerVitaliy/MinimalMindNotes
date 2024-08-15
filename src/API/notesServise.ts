@@ -25,9 +25,7 @@ export const updateUserData = async (userID: string| null | undefined, updatedUs
 export const addUserNote = async (userID: string | null | undefined, note: any) => {
     try {
         const user = await getUserByID(userID)
-
         user.notes.push(note)
-
         await updateUserData(userID, user)
     } catch (error) {
         console.error('Error adding post to user:', error);
@@ -61,7 +59,6 @@ export const updateUserNote = async (
         user.notes[noteIndex] = { ...user.notes[noteIndex], ...updatedNote };
 
         await updateUserData(userID, user);
-        console.log(`Note with ID ${noteID} successfully updated`);
     } catch (error) {
         console.error('Error updating note:', error);
         throw error;
@@ -71,12 +68,10 @@ export const updateUserNote = async (
 export const likeNoteByID = async (userID:string | null | undefined, noteID: number) => {
     try {
         const user = await getUserByID(userID)
-
         const noteIndex = user.notes.findIndex((note: any) => note.id === noteID)
 
         user.notes[noteIndex] = { ...user.notes[noteIndex], liked: !user.notes[noteIndex].liked }
         await updateUserData(userID, user);
-        console.log(`Note with ID ${noteID} successfully updated`);
     } catch (error) {
         console.error('Error updating note:', error);
         throw error;
