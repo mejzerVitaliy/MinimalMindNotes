@@ -12,7 +12,7 @@ const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const middlewares = jsonServer.defaults();
 app.use('/api', middlewares, router); 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'index.html')));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
