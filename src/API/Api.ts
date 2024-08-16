@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL:'https://minimalmindnotes-1.onrender.com/api'
+    baseURL:'https://minimalmindnotes-2.onrender.com/api'
 })
 
 export const createUser = (userData: {}) => api.post('/users', userData)
